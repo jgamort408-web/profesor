@@ -1,5 +1,5 @@
 <style>
-    /* Estilos del Footer (Mismos de antes) */
+    /* --- ESTILOS GENERALES DEL FOOTER --- */
     #indalo-footer {
         background-color: #2c3e50;
         color: #ecf0f1;
@@ -8,6 +8,8 @@
         margin-top: 50px;
         border-top: 5px solid #e67e22;
         font-size: 0.9rem;
+        position: relative;
+        z-index: 1000;
     }
 
     #indalo-footer .footer-container {
@@ -41,26 +43,46 @@
         font-size: 0.8rem;
     }
 
-    /* ESTILOS ESPECÍFICOS DEL TRADUCTOR */
-    #google_translate_element {
-        margin-top: 15px;
-        text-align: right;
-    }
+    /* --- ESTILIZACIÓN DEL TRADUCTOR (EL TRUCO NINJA) --- */
     
-    /* Ocultar la barra superior de Google que molesta */
+    /* 1. Ocultar la barra superior que desplaza la web */
     body { top: 0 !important; }
     .goog-te-banner-frame { display: none !important; }
     
-    /* Estilizar el dropdown de Google para que no sea feo */
-    .goog-te-gadget-simple {
-        background-color: #34495e !important;
-        border: 1px solid #7f8c8d !important;
-        padding: 5px !important;
-        border-radius: 4px !important;
-        color: white !important;
+    /* 2. Contenedor principal de Google */
+    #google_translate_element {
+        text-align: right;
     }
-    .goog-te-gadget-simple a { color: white !important; }
-    .goog-te-gadget-icon { display: none !important; } /* Ocultar logo G */
+
+    /* 3. EL TRUCO: Ocultar TODO el texto de "Powered by Google" */
+    .goog-te-gadget {
+        font-size: 0px !important; /* Esto hace desaparecer el texto de Google */
+        color: transparent !important;
+    }
+
+    /* Ocultar el logo de Google específicamente */
+    .goog-te-gadget img { display: none !important; }
+    .goog-te-gadget a { display: none !important; }
+
+    /* 4. Restaurar y estilizar SOLO el desplegable */
+    .goog-te-combo {
+        font-size: 1rem !important; /* Restauramos el tamaño de letra aquí */
+        font-family: 'Segoe UI', sans-serif;
+        color: #ecf0f1;             /* Texto blanco */
+        background-color: #34495e;  /* Fondo oscuro azulado */
+        border: 1px solid #7f8c8d;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        margin: 0 !important;       /* Quitar márgenes raros de Google */
+    }
+
+    /* Efecto al pasar el ratón */
+    .goog-te-combo:hover {
+        background-color: #2c3e50;
+        border-color: #f39c12; /* Borde naranja Indalo */
+    }
 </style>
 
 <footer id="indalo-footer">
