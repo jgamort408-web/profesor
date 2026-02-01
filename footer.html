@@ -1,12 +1,12 @@
 <style>
-    /* Estilos del Footer (Mismos de antes) */
+    /* Estilos encapsulados para el footer */
     #indalo-footer {
-        background-color: #2c3e50;
+        background-color: #2c3e50; /* Color primario de tu SdA */
         color: #ecf0f1;
         font-family: 'Segoe UI', sans-serif;
         padding: 40px 20px 20px 20px;
         margin-top: 50px;
-        border-top: 5px solid #e67e22;
+        border-top: 5px solid #e67e22; /* Acento naranja Alcazaba */
         font-size: 0.9rem;
     }
 
@@ -27,11 +27,21 @@
         font-size: 1rem;
     }
 
-    #indalo-footer ul { list-style: none; padding: 0; margin: 0; }
-    #indalo-footer li { margin-bottom: 8px; line-height: 1.4; }
-    #indalo-footer strong { color: #bdc3c7; }
-    #indalo-footer a { color: #3498db; text-decoration: none; }
-    
+    #indalo-footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #indalo-footer li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    #indalo-footer strong {
+        color: #bdc3c7;
+    }
+
     #indalo-footer .copy {
         text-align: center;
         margin-top: 40px;
@@ -41,33 +51,17 @@
         font-size: 0.8rem;
     }
 
-    /* ESTILOS ESPECÍFICOS DEL TRADUCTOR */
-    #google_translate_element {
-        margin-top: 15px;
-        text-align: right;
+    #indalo-footer a {
+        color: #3498db;
+        text-decoration: none;
     }
-    
-    /* Ocultar la barra superior de Google que molesta */
-    body { top: 0 !important; }
-    .goog-te-banner-frame { display: none !important; }
-    
-    /* Estilizar el dropdown de Google para que no sea feo */
-    .goog-te-gadget-simple {
-        background-color: #34495e !important;
-        border: 1px solid #7f8c8d !important;
-        padding: 5px !important;
-        border-radius: 4px !important;
-        color: white !important;
-    }
-    .goog-te-gadget-simple a { color: white !important; }
-    .goog-te-gadget-icon { display: none !important; } /* Ocultar logo G */
 </style>
 
 <footer id="indalo-footer">
     <div class="footer-container">
         
         <div>
-            <h4>🏛️ <span class="notranslate">I.E.S. Al-Ándalus</span></h4>
+            <h4>🏛️ I.E.S. Al-Ándalus</h4>
             <ul>
                 <li><strong>Departamento de Matemáticas:</strong></li>
                 <li>Juan María Gámez Ortiz</li>
@@ -82,33 +76,25 @@
         <div>
             <h4>📘 Situación de Aprendizaje</h4>
             <ul>
-                <li><strong>Título:</strong> Matemáticas en la Tierra del <span class="notranslate">Indalo</span></li>
-                <li><strong>Subtítulo:</strong> De la Geometría de la <span class="notranslate">Alcazaba</span> a la Precisión del Invernadero</li>
+                <li><strong>Título:</strong> Matemáticas en la Tierra del Indalo</li>
+                <li><strong>Subtítulo:</strong> De la Geometría de la Alcazaba a la Precisión del Invernadero</li>
                 <li><strong>Nivel:</strong> 1º ESO | Matemáticas</li>
                 <li><strong>Duración:</strong> 12 Sesiones</li>
             </ul>
         </div>
 
         <div>
-            <h4>🌍 Idioma / Language</h4>
-            <p style="font-size:0.8rem; color:#bdc3c7;">Selecciona tu idioma:</p>
-            <div id="google_translate_element"></div>
+            <h4>🔗 Enlaces Rápidos</h4>
+            <ul>
+                <li><a href="#">Simulador de Riego</a></li>
+                <li><a href="#">Mosaicos Nazaríes</a></li>
+                <li><a href="#">Cuaderno de Campo (PDF)</a></li>
+                <li><a href="https://github.com/TU_USUARIO/TU_REPO" target="_blank">Ver código en GitHub</a></li>
+            </ul>
         </div>
     </div>
 
     <div class="copy">
-        &copy; 2024 <span class="notranslate">I.E.S. Al-Ándalus</span>. Material educativo bajo licencia Creative Commons (BY-NC-SA).
+        &copy; 2024 I.E.S. Al-Ándalus. Material educativo bajo licencia Creative Commons (BY-NC-SA).
     </div>
 </footer>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-      pageLanguage: 'es', 
-      includedLanguages: 'en,fr,de,ar', // Idiomas permitidos (Inglés, Francés, Alemán, Árabe)
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
