@@ -1,5 +1,5 @@
 <style>
-    /* --- ESTILOS GENERALES DEL FOOTER --- */
+    /* Estilos del Footer (Mismos de antes) */
     #indalo-footer {
         background-color: #2c3e50;
         color: #ecf0f1;
@@ -8,8 +8,6 @@
         margin-top: 50px;
         border-top: 5px solid #e67e22;
         font-size: 0.9rem;
-        position: relative; /* Necesario para contener elementos */
-        z-index: 1000;
     }
 
     #indalo-footer .footer-container {
@@ -43,42 +41,74 @@
         font-size: 0.8rem;
     }
 
-    /* --- CORRECCIÓN DEL ERROR "ATARI / PÁGINA BLANCA" --- */
-    
-    /* 1. Ocultar la barra superior de Google que causa el salto de página */
-    body { top: 0 !important; }
-    .goog-te-banner-frame { display: none !important; visibility: hidden !important; }
-    .goog-te-balloon-frame { display: none !important; }
-
-    /* 2. Estilizar el botón para que parezca nativo */
+    /* ESTILOS ESPECÍFICOS DEL TRADUCTOR */
     #google_translate_element {
         margin-top: 15px;
         text-align: right;
     }
-
-    .goog-te-gadget {
-        font-family: 'Segoe UI', sans-serif !important;
-        color: #bdc3c7 !important;
-    }
-
-    /* Ocultar el texto "Powered by Google" que a veces se clica por error */
-    .goog-te-gadget span { display: none !important; }
-    .goog-te-gadget a { display: none !important; }
     
-    /* Mostrar SOLO el dropdown */
-    .goog-te-combo {
-        background-color: #34495e;
-        color: white;
-        border: 1px solid #7f8c8d;
-        padding: 8px;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        outline: none;
-    }
+    /* Ocultar la barra superior de Google que molesta */
+    body { top: 0 !important; }
+    .goog-te-banner-frame { display: none !important; }
     
-    .goog-te-combo:hover {
-        background-color: #2c3e50;
-        border-color: #f39c12;
+    /* Estilizar el dropdown de Google para que no sea feo */
+    .goog-te-gadget-simple {
+        background-color: #34495e !important;
+        border: 1px solid #7f8c8d !important;
+        padding: 5px !important;
+        border-radius: 4px !important;
+        color: white !important;
     }
+    .goog-te-gadget-simple a { color: white !important; }
+    .goog-te-gadget-icon { display: none !important; } /* Ocultar logo G */
 </style>
+
+<footer id="indalo-footer">
+    <div class="footer-container">
+        
+        <div>
+            <h4>🏛️ <span class="notranslate">I.E.S. Al-Ándalus</span></h4>
+            <ul>
+                <li><strong>Departamento de Matemáticas:</strong></li>
+                <li>Juan María Gámez Ortiz</li>
+                <li>Francisco Javier Martínez Torres</li>
+                <li>Ramón Barrasa Trujillo</li>
+                <br>
+                <li><strong>Departamento de Orientación:</strong></li>
+                <li>José Miguel Martín Ortega</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>📘 Situación de Aprendizaje</h4>
+            <ul>
+                <li><strong>Título:</strong> Matemáticas en la Tierra del <span class="notranslate">Indalo</span></li>
+                <li><strong>Subtítulo:</strong> De la Geometría de la <span class="notranslate">Alcazaba</span> a la Precisión del Invernadero</li>
+                <li><strong>Nivel:</strong> 1º ESO | Matemáticas</li>
+                <li><strong>Duración:</strong> 12 Sesiones</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>🌍 Idioma / Language</h4>
+            <p style="font-size:0.8rem; color:#bdc3c7;">Selecciona tu idioma:</p>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+
+    <div class="copy">
+        &copy; 2024 <span class="notranslate">I.E.S. Al-Ándalus</span>. Material educativo bajo licencia Creative Commons (BY-NC-SA).
+    </div>
+</footer>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+      pageLanguage: 'es', 
+      includedLanguages: 'en,fr,de,ar', // Idiomas permitidos (Inglés, Francés, Alemán, Árabe)
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
