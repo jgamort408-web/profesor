@@ -6,16 +6,33 @@
             <p><strong>Creador:</strong> Juan María Gámez Ortiz</p>
             <p class="role">Profesor de Matemáticas</p>
             <p>
-                <a href="https://iesalandalus.org/joomla/" target="_blank" rel="noopener noreferrer">
+                <a href="http://www.iesalandalus.org/" target="_blank" rel="noopener noreferrer">
                     I.E.S. Al-Ándalus (Almería)
                 </a>
             </p>
         </div>
 
         <div class="footer-tools">
-            <h3>Accesibilidad e Idioma</h3>
-            <div id="google_translate_element"></div>
-            <p class="note">Selecciona tu idioma preferido para traducir el contenido.</p>
+            <h3>Idiomas / Languages</h3>
+            <p class="note">Traducir esta página:</p>
+            
+            <div class="lang-buttons">
+                <button onclick="traducirPagina('en')" class="btn-lang" title="Traducir al Inglés">
+                    🇬🇧 English
+                </button>
+                
+                <button onclick="traducirPagina('fr')" class="btn-lang" title="Traducir al Francés">
+                    🇫🇷 Français
+                </button>
+
+                <button onclick="traducirPagina('de')" class="btn-lang" title="Traducir al Alemán">
+                    🇩🇪 Deutsch
+                </button>
+
+                <button onclick="traducirPagina('ar')" class="btn-lang" title="Traducir al Árabe">
+                  AR Arabic
+                </button>
+            </div>
         </div>
 
     </div>
@@ -26,88 +43,99 @@
 </footer>
 
 <style>
-    /* Reset básico para el footer */
+    /* Reset básico */
     #main-footer {
-        background-color: #2c3e50; /* Azul oscuro corporativo/educativo */
-        color: #ecf0f1; /* Blanco hueso para texto */
+        background-color: #2c3e50;
+        color: #ecf0f1;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 40px 20px 20px;
-        margin-top: 50px;
-        border-top: 4px solid #27ae60; /* Verde estilo Andalucía */
-        font-size: 16px;
-        line-height: 1.6;
+        padding: 30px 20px;
+        border-top: 4px solid #27ae60;
+        font-size: 15px;
+        line-height: 1.5;
+        /* Asegurar que ocupe el ancho en el iframe */
+        width: 100%;
+        box-sizing: border-box; 
     }
 
     .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        gap: 30px;
         justify-content: space-between;
-        gap: 20px;
     }
 
     .footer-info, .footer-tools {
-        flex: 1 1 300px; /* Flexibilidad para móviles */
+        flex: 1 1 250px;
     }
 
-    .footer-info h3, .footer-tools h3 {
-        color: #27ae60; /* Verde */
+    h3 {
+        color: #27ae60;
         border-bottom: 2px solid #34495e;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
         font-size: 1.1rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        margin-top: 0;
     }
 
-    .footer-info a {
-        color: #3498db;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .footer-info a:hover {
-        color: #5dade2;
-        text-decoration: underline;
-    }
+    a { color: #3498db; text-decoration: none; }
+    a:hover { color: #5dade2; text-decoration: underline; }
 
     .footer-bottom {
         text-align: center;
-        margin-top: 40px;
-        padding-top: 20px;
+        margin-top: 25px;
+        padding-top: 15px;
         border-top: 1px solid #34495e;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: #bdc3c7;
     }
 
-    /* Ajustes específicos para el widget de Google */
-    .goog-te-gadget-simple {
-        background-color: #ecf0f1 !important;
-        border: none !important;
-        padding: 8px !important;
+    /* Estilos de los botones de idioma */
+    .lang-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .btn-lang {
+        background-color: #34495e;
+        color: white;
+        border: 1px solid #7f8c8d;
+        padding: 5px 10px;
         border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.2s;
     }
-    
-    .note {
-        font-size: 0.85rem;
-        color: #bdc3c7;
-        margin-top: 5px;
+
+    .btn-lang:hover {
+        background-color: #27ae60;
+        border-color: #2ecc71;
     }
+
+    .note { margin: 0; font-size: 0.85rem; color: #bdc3c7; }
 </style>
 
 <script>
-    // 1. Poner el año actual automáticamente
+    // 1. Poner año actual
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // 2. Cargar Google Translate
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'es', 
-            includedLanguages: 'en,fr,de,it,ar,es', // Idiomas permitidos
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
+    // 2. Función de traducción segura para Google Sites
+    function traducirPagina(idiomaDestino) {
+        // En Google Sites, la URL real está en document.referrer porque estamos en un iframe
+        // Si referrer falla, usa una URL base por defecto (seguridad)
+        var urlOrigen = document.referrer;
+        
+        if (!urlOrigen || urlOrigen.indexOf("google") === -1) {
+            // Pon aquí la URL de tu HOME por si acaso falla la detección automática
+            urlOrigen = "https://sites.google.com/g.educaand.es/estadstica2bach/inicio";
+        }
+
+        // Construir la URL de traducción
+        var urlTraduccion = "https://translate.google.com/translate?sl=es&tl=" + idiomaDestino + "&u=" + encodeURIComponent(urlOrigen);
+        
+        // Abrir en nueva pestaña
+        window.open(urlTraduccion, '_blank');
     }
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
