@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Tiendas de Barrio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2A5C82;       /* Azul Corporativo */
+            --primary-dark: #1a3c57;  /* Azul Oscuro */
+            --accent: #F4A261;        /* Naranja Acento */
+            --text-white: #ffffff;
+            --text-gray: #cbd5e1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent; /* Importante para integración */
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .site-footer {
+            background-color: var(--primary);
+            color: var(--text-white);
+            padding: 40px 20px;
+            border-top: 5px solid var(--accent);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Sección de Autores */
+        .authors-section {
+            text-align: left;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .author-item {
+            margin-bottom: 12px;
+        }
+
+        .author-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .author-dept {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 400;
+            display: block;
+        }
+
+        /* Sección del Instituto */
+        .school-section {
+            flex: 1;
+            min-width: 250px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .school-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .school-link:hover {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .school-label {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Copyright inferior */
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .authors-section, .school-section {
+                text-align: center;
+                align-items: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            
+            <div class="authors-section">
+                <div class="author-item">
+                    <span class="author-name">Juan María Gámez Ortiz</span>
+                    <span class="author-dept">Departamento de Matemáticas</span>
+                </div>
+                <div class="author-item">
+                    <span class="author-name">José Miguel Martín Ortega</span>
+                    <span class="author-dept">Departamento de Orientación</span>
+                </div>
+            </div>
+
+            <div class="school-section">
+                <a href="https://iesalandalus.org/joomla/" target="_blank" class="school-link">
+                    Visitar Web IES Al-Ándalus
+                    <span>→</span>
+                </a>
+                <span class="school-label">Proyecto de Innovación Educativa</span>
+            </div>
+
+            <div class="copyright">
+                &copy; 2024 Tiendas de Barrio | Situación de Aprendizaje Inclusiva (ABP + DUA)
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
