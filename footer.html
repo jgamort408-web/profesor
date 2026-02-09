@@ -84,9 +84,52 @@
         transition: background 0.3s, transform 0.1s;
         font-size: 1rem;
     }
-
     #bell-btn:hover { background-color: #d35400; }
     #bell-btn:active { transform: scale(0.95); }
+
+    /* --- VENTANA MODAL (Para la contraseña oculta) --- */
+    .modal-overlay {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(3px);
+    }
+
+    .modal-box {
+        background: #ecf0f1;
+        padding: 25px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        border-top: 5px solid #e67e22;
+        color: #2c3e50;
+    }
+
+    .modal-box h3 { margin-top: 0; color: #e67e22; }
+    
+    .modal-input {
+        width: 100%;
+        padding: 10px;
+        margin: 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        text-align: center;
+        box-sizing: border-box; /* Para que el padding no rompa el ancho */
+    }
+
+    .modal-buttons { display: flex; gap: 10px; justify-content: center; }
+    
+    .btn-confirm { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .btn-cancel { background: #c0392b; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .btn-confirm:hover { background: #219150; }
+    .btn-cancel:hover { background: #a93226; }
+
 </style>
 
 <footer id="indalo-footer">
@@ -121,7 +164,7 @@
             <p style="font-size:0.8rem; color:#bdc3c7; margin-bottom: 5px;">Idioma / Language:</p>
             <div id="google_translate_element"></div>
 
-            <button id="bell-btn" onclick="ringBell()">
+            <button id="bell-btn" onclick="openBellModal()">
                 🔔 Llamar la atención
             </button>
             
@@ -134,6 +177,19 @@
     <div class="copy">
         &copy; 2024 <span class="notranslate">I.E.S. Al-Ándalus</span>. Material educativo bajo licencia Creative Commons (BY-NC-SA).
     </div>
+
+    <div id="bell-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>🔐 Profesor</h3>
+            <p>Introduce la contraseña:</p>
+            <input type="password" id="bell-pass-input" class="modal-input" placeholder="******">
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeBellModal()">Cancelar</button>
+                <button class="btn-confirm" onclick="checkBellPassword()">Activar</button>
+            </div>
+        </div>
+    </div>
+
 </footer>
 
 <script type="text/javascript">
@@ -147,30 +203,43 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 
-// 2. LÓGICA DE LA CAMPANA
-function ringBell() {
-    const password = "profe"; // CAMBIA LA CONTRASEÑA AQUÍ SI QUIERES
+// 2. LÓGICA DE LA CAMPANA CON MODAL
+const correctPassword = "profe"; // CAMBIA LA CONTRASEÑA AQUÍ
+
+function openBellModal() {
+    const modal = document.getElementById('bell-modal');
+    const input = document.getElementById('bell-pass-input');
+    modal.style.display = 'flex'; // Mostrar ventana
+    input.value = ''; // Limpiar input
+    input.focus(); // Poner cursor
+}
+
+function closeBellModal() {
+    document.getElementById('bell-modal').style.display = 'none';
+}
+
+function checkBellPassword() {
+    const input = document.getElementById('bell-pass-input');
     
-    const input = prompt("🔐 Control de Profesor\nIntroduce la contraseña para tocar la campana:");
-    
-    if (input === password) {
+    if (input.value === correctPassword) {
+        closeBellModal();
         const audio = document.getElementById('audio-bell');
         audio.volume = 1.0; 
         audio.currentTime = 0;
-        
-        // Reproducir
-        var promise = audio.play();
-        if (promise !== undefined) {
-            promise.then(_ => {
-                console.log("Ding!");
-            }).catch(error => {
-                console.log("Bloqueo de audio:", error);
-                alert("Haz clic en cualquier parte de la página primero para activar el sonido.");
-            });
-        }
-    } else if (input !== null) {
-        alert("⛔ Contraseña incorrecta.");
+        audio.play().catch(e => console.log("Error audio:", e));
+    } else {
+        alert("⛔ Contraseña incorrecta");
+        input.value = '';
+        input.focus();
     }
 }
+
+// Permitir pulsar ENTER para aceptar
+document.getElementById('bell-pass-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        checkBellPassword();
+    }
+});
+
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
