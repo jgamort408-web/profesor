@@ -347,7 +347,7 @@
     },
 
 "quiz_mix_operaciones": {
-    "title": "Mix: Las 4 Operaciones Básicas",
+    "title": "Nivel 4: Las 4 Operaciones Básicas",
     "questions": [
       {
         "q": "Suma básica (mismo denominador): $$\\frac{2}{9} + \\frac{5}{9}$$",
@@ -480,6 +480,141 @@
         "style": "normal"
       }
     ]
-  }
+  },
+"quiz_teoria_flashcards": {
+    "title": "Teoría: Conceptos Fundamentales",
+    "questions": [
+      {
+        "q": "¿Qué representa una **Fracción**?",
+        "options": [
+          "Una parte de un todo o una división indicada.",
+          "Un número siempre mayor que 1.",
+          "Una operación de resta.",
+          "Un número negativo."
+        ],
+        "correct": 0,
+        "explanation": "Como dice la tarjeta: $$\\frac{3}{4}$$ significa '3 partes de 4' o '3 entre 4'.",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "¿Qué herramienta necesitas obligatoriamente para **sumar** con distinto denominador?",
+        "options": [
+          "El m.c.m. (Mínimo Común Múltiplo).",
+          "La calculadora.",
+          "El m.c.d. (Máximo Común Divisor).",
+          "La regla de tres."
+        ],
+        "correct": 0,
+        "explanation": "No se puede sumar directo. Necesitas un 'muro común' (denominador común) usando el m.c.m.",
+        "layout": "hero",
+        "style": "normal"
+      },
+      {
+        "q": "Identifica el error en esta definición: 'Para multiplicar fracciones, se hace en cruz'.",
+        "options": [
+          "Es correcto, se hace en cruz.",
+          "No, la multiplicación es EN LÍNEA.",
+          "Se hace calculando el m.c.m.",
+          "Solo se multiplican los numeradores."
+        ],
+        "correct": 1,
+        "explanation": "¡Cuidado! La multiplicación es la única que va recta: Numerador $\\cdot$ Numerador y Denominador $\\cdot$ Denominador.",
+        "layout": "list",
+        "style": "warning"
+      },
+      {
+        "q": "¿Cómo se realiza la **división** de fracciones (el método del caramelo)?",
+        "options": [
+          "Multiplicando en cruz.",
+          "Dividiendo en línea.",
+          "Restando los términos.",
+          "Sumando los exponentes."
+        ],
+        "correct": 0,
+        "explanation": "Aunque sea división, la mecánica es multiplicar los términos cruzados.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "¿Cuándo decimos que una fracción es **irreducible**?",
+        "options": [
+          "Cuando no se puede simplificar más.",
+          "Cuando tiene números muy grandes.",
+          "Cuando el numerador es mayor que el denominador.",
+          "Cuando es igual a 1."
+        ],
+        "correct": 0,
+        "explanation": "Es irreducible cuando el numerador y el denominador son primos entre sí (no tienen divisores comunes).",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "¿Verdadero o Falso? Para pasar de fracción a decimal se divide el numerador entre el denominador.",
+        "options": [
+          "Verdadero",
+          "Falso",
+          "-",
+          "-"
+        ],
+        "correct": 0,
+        "explanation": "Correcto. Ejemplo: $$\\frac{1}{4} = 1 : 4 = 0,25$$.",
+        "layout": "bool",
+        "style": "normal"
+      },
+      {
+        "q": "¿Cuál es el **inverso** de la fracción $$\\frac{2}{3}$$?",
+        "options": [
+          "$$\\frac{3}{2}$$",
+          "$$-\\frac{2}{3}$$",
+          "$$1$$",
+          "$$0$$"
+        ],
+        "correct": 0,
+        "explanation": "Para el inverso, simplemente 'le damos la vuelta': intercambiamos numerador y denominador.",
+        "layout": "hero",
+        "style": "normal"
+      },
+      {
+        "q": "Definición: ¿Qué es una fracción **Impropia**?",
+        "options": [
+          "Aquella donde el numerador es MAYOR que el denominador.",
+          "Aquella donde el numerador es MENOR que el denominador.",
+          "Una fracción con números negativos.",
+          "Una fracción igual a cero."
+        ],
+        "correct": 0,
+        "explanation": "Impropia significa que representa más de una unidad (ej: $$\\frac{7}{5}$$). Propia es cuando es menor que 1 (ej: $$\\frac{2}{5}$$).",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "¿Qué son las fracciones **equivalentes**?",
+        "options": [
+          "Las que representan la misma cantidad.",
+          "Las que tienen el mismo denominador.",
+          "Las que suman 1.",
+          "Las que son irreducibles."
+        ],
+        "correct": 0,
+        "explanation": "Son distintas formas de escribir lo mismo. Ejemplo: $$\\frac{1}{2}$$ es lo mismo que $$\\frac{2}{4}$$.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "¿Verdadero o Falso? El m.c.m. de 3 y 4 es 7.",
+        "options": [
+          "Verdadero",
+          "Falso",
+          "-",
+          "-"
+        ],
+        "correct": 1,
+        "explanation": "Falso. El m.c.m. de 3 y 4 es 12. (7 sería la suma, no el múltiplo común).",
+        "layout": "bool",
+        "style": "warning"
+      }
+    ]
+  }    
     
 }
