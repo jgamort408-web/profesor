@@ -615,6 +615,281 @@
         "style": "warning"
       }
     ]
-  }    
+  },
+
+    "quiz_proporcionalidad": {
+    "title": "Proporcionalidad y Porcentajes",
+    "questions": [
+      {
+        "q": "¿Qué es una **Razón** en matemáticas?",
+        "options": [
+          "Una comparación entre dos cantidades por cociente.",
+          "Una suma de dos números.",
+          "El resultado de multiplicar dos fracciones.",
+          "Un número siempre mayor que 100."
+        ],
+        "correct": 0,
+        "explanation": "Es el cociente entre dos números. Se suele escribir como $$a:b$$ (se lee 'a es a b').",
+        "layout": "hero",
+        "style": "normal"
+      },
+      {
+        "q": "En agricultura, el Ratio **NPK** indica la proporción de Nitrógeno, Fósforo y Potasio. En un abono 13-40-13, ¿cuál es el elemento más abundante?",
+        "options": [
+          "El Fósforo (P).",
+          "El Nitrógeno (N).",
+          "El Potasio (K).",
+          "Todos por igual."
+        ],
+        "correct": 0,
+        "explanation": "El número central (40) corresponde al Fósforo (P). Es un abono para estimular la raíz y floración.",
+        "layout": "list",
+        "style": "normal",
+        "image": "https://placehold.co/600x200/e6fffa/047857?text=NPK+13-40-13"
+      },
+      {
+        "q": "Fórmula: En una **Regla de Tres Directa**, si $$\\frac{A}{B} = \\frac{C}{x}$$, ¿cómo despejamos la $$x$$?",
+        "options": [
+          "$$x = \\frac{B \\cdot C}{A}$$",
+          "$$x = A \\cdot B \\cdot C$$",
+          "$$x = \\frac{A \\cdot C}{B}$$",
+          "$$x = \\frac{A}{B \\cdot C}$$"
+        ],
+        "correct": 0,
+        "explanation": "Se multiplica en cruz los que tienen pareja (B y C) y se divide por el que se queda solo (A).",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "Diferencia Clave: Una **Fracción** compara Parte con Todo. ¿Qué compara habitualmente una **Razón**?",
+        "options": [
+          "Parte con Parte (ej: Agua vs Abono).",
+          "El total con el total.",
+          "Fracciones con decimales.",
+          "Siempre compara con 100."
+        ],
+        "correct": 0,
+        "explanation": "Ejemplo: En una mezcla 10:1 (agua:abono), comparamos dos partes distintas, no una parte del total.",
+        "layout": "list",
+        "style": "warning"
+      },
+      {
+        "q": "¿Verdadero o Falso? El **Porcentaje (%)** es una razón donde el denominador siempre es 100.",
+        "options": [
+          "Verdadero",
+          "Falso",
+          "-",
+          "-"
+        ],
+        "correct": 0,
+        "explanation": "Exacto. $$20\\%$$ significa literalmente '20 de cada 100'. Matemáticamente es $$\\frac{20}{100}$$.",
+        "layout": "bool",
+        "style": "normal"
+      },
+      {
+        "q": "Cálculo rápido: ¿A qué número decimal equivale el $$20\\%$$?",
+        "options": [
+          "$$0,2$$",
+          "$$0,02$$",
+          "$$2,0$$",
+          "$$20$$"
+        ],
+        "correct": 0,
+        "explanation": "Al dividir entre 100, movemos la coma dos sitios a la izquierda. $$20 : 100 = 0,2$$.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "Lógica: ¿Cuál de estas parejas son **Magnitudes Directamente Proporcionales**?",
+        "options": [
+          "Kilos de manzanas y Precio total.",
+          "Velocidad de un coche y tiempo en llegar.",
+          "Número de obreros y tiempo en acabar la obra.",
+          "La edad de una persona y su altura."
+        ],
+        "correct": 0,
+        "explanation": "Directa: Si compro el doble de manzanas, pago el doble. (Velocidad y tiempo son Inversas: más rápido = menos tiempo).",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "Definición técnica: Dos magnitudes son directas si al multiplicar una por $$k$$...",
+        "options": [
+          "La otra también se multiplica por $$k$$.",
+          "La otra se divide por $$k$$.",
+          "La otra se queda igual.",
+          "La otra se suma con $$k$$."
+        ],
+        "correct": 0,
+        "explanation": "Esa $$k$$ es la constante de proporcionalidad. Si doblas una (x2), la otra se dobla (x2).",
+        "layout": "standard",
+        "style": "hero"
+      },
+      {
+        "q": "Interpretación: Si la razón de mezcla es **1:3**, significa...",
+        "options": [
+          "1 parte del producto A por cada 3 del producto B.",
+          "1 parte del producto A y 3 es el total.",
+          "Que hay que echar 3 litros de A.",
+          "Que la mezcla pesa 13 kg."
+        ],
+        "correct": 0,
+        "explanation": "Es una relación Parte a Parte. Por cada cazo de uno, echas tres cazos del otro.",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "[Imagen de balanza] En una regla de tres directa, si una cantidad sube, la otra...",
+        "options": [
+          "Sube en la misma proporción.",
+          "Baja.",
+          "Se mantiene constante.",
+          "Desaparece."
+        ],
+        "correct": 0,
+        "explanation": "Es la esencia de la proporcionalidad directa. Más gasolina = Más dinero. Menos gasolina = Menos dinero.",
+        "layout": "standard",
+        "style": "normal",
+        "image": "https://images.unsplash.com/photo-1587740896339-96a76170508d?q=80&w=771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      }
+    ]
+  },
+
+    "quiz_algebra": {
+    "title": "Iniciación al Álgebra",
+    "questions": [
+      {
+        "q": "Definición: ¿Qué es una **Variable** en matemáticas?",
+        "options": [
+          "Una letra que representa un número desconocido.",
+          "Un número que siempre vale 1.",
+          "El resultado final de una cuenta.",
+          "Un signo de puntuación."
+        ],
+        "correct": 0,
+        "explanation": "Como dice la tarjeta: usamos letras (x, y, t...) para representar valores que no conocemos o que pueden cambiar.",
+        "layout": "hero",
+        "style": "normal"
+      },
+      {
+        "q": "Traducción: ¿Cómo se escribe en lenguaje algebraico **'El doble de un número'**?",
+        "options": [
+          "$$2x$$",
+          "$$x^2$$",
+          "$$x + 2$$",
+          "$$\\frac{x}{2}$$"
+        ],
+        "correct": 0,
+        "explanation": "El doble siempre implica multiplicar por 2. ($$x^2$$ sería 'el cuadrado' y $$x+2$$ 'el número más dos').",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "Lenguaje: Si $$x$$ es un número, ¿cómo escribimos **'El siguiente de un número'**?",
+        "options": [
+          "$$x + 1$$",
+          "$$x - 1$$",
+          "$$2x$$",
+          "$$1x$$"
+        ],
+        "correct": 0,
+        "explanation": "El siguiente es el que va después. Al número desconocido le sumamos 1.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "Identifica el ERROR grave: Un alumno sumó $$2x + 3x^2$$ y puso $$5x^3$$. ¿Por qué está mal?",
+        "options": [
+          "Porque NO son Términos Semejantes.",
+          "Porque sumó mal los coeficientes.",
+          "Porque debería haber restado.",
+          "Es correcto."
+        ],
+        "correct": 0,
+        "explanation": "¡Cuidado! Solo se pueden sumar 'peras con peras'. $$x$$ y $$x^2$$ tienen distinta parte literal, así que se dejan indicados, no se juntan.",
+        "layout": "list",
+        "style": "warning"
+      },
+      {
+        "q": "¿Verdadero o Falso? La expresión $$3x + 1$$ es un **Monomio**.",
+        "options": [
+          "Verdadero",
+          "Falso",
+          "-",
+          "-"
+        ],
+        "correct": 1,
+        "explanation": "Falso. Un monomio es un SOLO término (ej: $$3x^2$$). Aquí hay una suma de dos cosas, así que es un binomio.",
+        "layout": "bool",
+        "style": "normal"
+      },
+      {
+        "q": "Regla de la Suma: En la ecuación $$x + 5 = 15$$, ¿cómo pasa el 5 al otro lado?",
+        "options": [
+          "Restando ($$15 - 5$$).",
+          "Sumando otra vez ($$15 + 5$$).",
+          "Dividiendo ($$15 : 5$$).",
+          "Desaparece."
+        ],
+        "correct": 0,
+        "explanation": "Lo que está sumando en un miembro, pasa restando al otro para despejar la incógnita.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "Regla del Producto: En la ecuación $$3x = 12$$, el 3 está multiplicando. ¿Cómo pasa al otro lado?",
+        "options": [
+          "Dividiendo ($$\\frac{12}{3}$$).",
+          "Restando ($$12 - 3$$).",
+          "Multiplicando ($$12 \\cdot 3$$).",
+          "Con signo negativo."
+        ],
+        "correct": 0,
+        "explanation": "Si multiplica a la x, pasa dividiendo al otro lado de la igualdad.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "¿Qué significa ser **Solución** de una ecuación?",
+        "options": [
+          "Es el valor numérico que hace que la igualdad sea cierta.",
+          "Es el número más grande de la ecuación.",
+          "Es la letra x.",
+          "Es el primer número que aparece."
+        ],
+        "correct": 0,
+        "explanation": "Ejemplo: En $$x+2=5$$, la solución es 3, porque es el único número que cumple que $$3+2=5$$.",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "Modelización: Para un invernadero de 40m de ancho, la fórmula del perímetro es $$P = 2L + 80$$. ¿Qué representa la $$L$$?",
+        "options": [
+          "El Largo del invernadero.",
+          "Los Litros de agua.",
+          "El Lado de un cuadrado.",
+          "La Luz solar."
+        ],
+        "correct": 0,
+        "explanation": "En este contexto de geometría, la variable L se usa para representar la longitud desconocida (Largo).",
+        "layout": "standard",
+        "style": "normal",
+        "image": "https://placehold.co/600x200/f0fdf4/166534?text=Perimetro+Invernadero"
+      },
+      {
+        "q": "Traducción: ¿Cómo escribimos **'La mitad de un número'**?",
+        "options": [
+          "$$\\frac{x}{2}$$",
+          "$$2x$$",
+          "$$x - 2$$",
+          "$$x^2$$"
+        ],
+        "correct": 0,
+        "explanation": "La mitad siempre es dividir entre 2.",
+        "layout": "standard",
+        "style": "normal"
+      }
+    ]
+  }
     
 }
