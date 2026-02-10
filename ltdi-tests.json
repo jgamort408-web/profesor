@@ -1,4 +1,5 @@
-"quiz_sumasyrestas": {
+{
+    "quiz_sumasyrestas": {
     "title": "Nivel 1: Suma y Resta de Fracciones",
     "questions": [
         {
@@ -343,4 +344,5 @@
             "explanation": "Obtuvo $$\\frac{8}{15}$$ porque hizo $$2 \\cdot 4$$ y $$3 \\cdot 5$$. Eso es multiplicar, no dividir."
         }
     ]
+    }
 }
