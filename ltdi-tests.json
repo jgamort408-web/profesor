@@ -618,7 +618,7 @@
   },
 
     "quiz_proporcionalidad": {
-    "title": "Proporcionalidad y Porcentajes",
+    "title": "Teoría: Proporcionalidad y Porcentajes",
     "questions": [
       {
         "q": "¿Qué es una **Razón** en matemáticas?",
@@ -756,7 +756,7 @@
   },
 
     "quiz_algebra": {
-    "title": "Iniciación al Álgebra",
+    "title": "Teoría: Iniciación al Álgebra",
     "questions": [
       {
         "q": "Definición: ¿Qué es una **Variable** en matemáticas?",
