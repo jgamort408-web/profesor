@@ -344,5 +344,143 @@
             "explanation": "Obtuvo $$\\frac{8}{15}$$ porque hizo $$2 \\cdot 4$$ y $$3 \\cdot 5$$. Eso es multiplicar, no dividir."
         }
     ]
-    }
+    },
+    "quiz_demo_visual": {
+    "title": "Demostración: Potencial Visual y Diseños",
+    "questions": [
+      {
+        "q": "1. Diseño Estándar (Grilla 2x2): ¿Cuál es la fórmula del área del triángulo?",
+        "options": [
+          "$$b \\cdot h$$",
+          "$$\\frac{b \\cdot h}{2}$$",
+          "$$l^2$$",
+          "$$\\pi r^2$$"
+        ],
+        "correct": 1,
+        "explanation": "Este es el diseño por defecto: 4 opciones en cuadrícula. Ideal para fórmulas cortas.",
+        "layout": "standard",
+        "style": "normal"
+      },
+      {
+        "q": "2. Diseño 'Hero' (Texto Gigante): ¿Cuánto suman los ángulos de un triángulo?",
+        "options": [
+          "90º",
+          "180º",
+          "360º",
+          "270º"
+        ],
+        "correct": 1,
+        "explanation": "El estilo 'hero' agranda y centra el texto. Úsalo para conceptos clave muy cortos o preguntas de impacto.",
+        "layout": "standard",
+        "style": "hero"
+      },
+      {
+        "q": "3. Diseño 'Warning' (Alerta de Error): Encuentra el fallo grave en esta operación: $$(a+b)^2 = a^2 + b^2$$",
+        "options": [
+          "Es correcto.",
+          "Falta el doble producto ($$2ab$$).",
+          "Los signos están mal.",
+          "Debería ser al cubo."
+        ],
+        "correct": 1,
+        "explanation": "El estilo 'warning' pone el fondo naranja. Perfecto para ejercicios de 'Encuentra el error' o trampas comunes.",
+        "layout": "list",
+        "style": "warning"
+      },
+      {
+        "q": "4. Diseño 'Boolean' (Verdadero/Falso): El número 1 es un número primo.",
+        "options": [
+          "Verdadero",
+          "Falso",
+          "-",
+          "-"
+        ],
+        "correct": 1,
+        "explanation": "El layout 'bool' crea dos botones grandes. El 1 no es primo porque solo tiene un divisor (él mismo).",
+        "layout": "bool",
+        "style": "normal"
+      },
+      {
+        "q": "5. Imagen + Estándar: ¿Qué tipo de triángulo es este según sus lados?",
+        "options": [
+          "Equilátero",
+          "Isósceles",
+          "Escaleno",
+          "Rectángulo"
+        ],
+        "correct": 1,
+        "explanation": "Puedes añadir imágenes a cualquier diseño. (Aquí verías un triángulo con dos lados iguales).",
+        "layout": "standard",
+        "style": "normal",
+        "image": "https://placehold.co/600x300/EEE/31343C?text=Triangulo+Isosceles"
+      },
+      {
+        "q": "6. Diseño 'List' (Lista Vertical): Selecciona la definición correcta de 'Mediatriz'.",
+        "options": [
+          "Línea que divide un ángulo en dos partes iguales.",
+          "Recta perpendicular a un segmento que pasa por su punto medio.",
+          "Línea que une un vértice con el punto medio del lado opuesto.",
+          "Recta que pasa por el ortocentro."
+        ],
+        "correct": 1,
+        "explanation": "El layout 'list' pone las opciones una debajo de otra. Es OBLIGATORIO usarlo cuando las respuestas son frases largas para que se lean bien.",
+        "layout": "list",
+        "style": "normal"
+      },
+      {
+        "q": "7. Imagen + Boolean: ¿Esta gráfica representa una función lineal?",
+        "options": [
+          "Sí, es una recta",
+          "No, es una parábola",
+          "-",
+          "-"
+        ],
+        "correct": 1,
+        "explanation": "Combinación de Imagen y Botones grandes. La imagen muestra una curva (parábola), así que es falso.",
+        "layout": "bool",
+        "style": "normal",
+        "image": "https://placehold.co/600x300/EEE/31343C?text=Grafica+Parabola"
+      },
+      {
+        "q": "8. Hero + Boolean: ¿$$ \\pi = 3.14 $$?",
+        "options": [
+          "Exactamente",
+          "Aproximadamente",
+          "-",
+          "-"
+        ],
+        "correct": 1,
+        "explanation": "Mezcla de Texto Gigante y Botones V/F. Pi es un número irracional con infinitos decimales, 3.14 es solo una aproximación.",
+        "layout": "bool",
+        "style": "hero"
+      },
+      {
+        "q": "9. Warning + Imagen: ¿Dónde está el error en el cálculo del área de este círculo ($$r=3$$)? Operación: $$A = 2 \\cdot \\pi \\cdot 3$$",
+        "options": [
+          "Usó la fórmula de la longitud ($$2\\pi r$$).",
+          "El radio está mal medido.",
+          "Pi vale 3.",
+          "No hay error."
+        ],
+        "correct": 0,
+        "explanation": "Alerta visual + Imagen de contexto. Usó la fórmula de la circunferencia, no la del área ($$\\pi r^2$$).",
+        "layout": "list",
+        "style": "warning",
+        "image": "https://placehold.co/600x200/ffeec2/d97706?text=Circulo+Radio+3"
+      },
+      {
+        "q": "10. MathJax Extremo + Lista: Simplifica la siguiente expresión algebraica compleja:",
+        "options": [
+          "$$ \\frac{x^2 - 1}{x + 1} = x - 1 $$",
+          "$$ \\sqrt{x^2 + y^2} = x + y $$",
+          "$$ \\frac{1}{x} + \\frac{1}{y} = \\frac{1}{x+y} $$",
+          "$$ (x+y)^2 = x^2 + y^2 $$"
+        ],
+        "correct": 0,
+        "explanation": "Prueba de renderizado LaTeX en lista. La A es la única igualdad correcta (diferencia de cuadrados). Las demás son errores comunes.",
+        "layout": "list",
+        "style": "normal"
+      }
+    ]
+  }
 }
