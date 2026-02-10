@@ -1,0 +1,348 @@
+{
+"quiz_sumasyrestas": {
+    "title": "Nivel 1: Suma y Resta de Fracciones",
+    "questions": [
+        {
+            "q": "Calcula la siguiente suma con el mismo denominador: $$\\frac{2}{7} + \\frac{3}{7}$$",
+            "options": [
+                "$$\\frac{5}{14}$$",
+                "$$\\frac{5}{7}$$",
+                "$$\\frac{6}{49}$$",
+                "$$\\frac{1}{7}$$"
+            ],
+            "correct": 1,
+            "explanation": "¡Cuidado! Cuando el denominador es igual, **se mantiene** y solo sumamos los numeradores ($$2+3=5$$). Nunca sumes los denominadores ($$7+7$$ es incorrecto)."
+        },
+        {
+            "q": "Resta de fracciones con igual denominador: $$\\frac{8}{9} - \\frac{2}{9}$$",
+            "options": [
+                "$$\\frac{6}{0}$$",
+                "$$\\frac{10}{9}$$",
+                "$$\\frac{6}{9}$$",
+                "$$\\frac{6}{18}$$"
+            ],
+            "correct": 2,
+            "explanation": "Mantenemos el denominador ($$9$$) y restamos los numeradores ($$8-2=6$$). El error común es restar los denominadores, lo cual es imposible."
+        },
+        {
+            "q": "Suma con distinto denominador. ¿Cuál es el resultado de $$\\frac{1}{2} + \\frac{1}{4}$$?",
+            "options": [
+                "$$\\frac{2}{6}$$",
+                "$$\\frac{1}{6}$$",
+                "$$\\frac{3}{4}$$",
+                "$$\\frac{2}{8}$$"
+            ],
+            "correct": 2,
+            "explanation": "No puedes sumar en línea. Primero buscamos el denominador común (4). La operación queda: $$\\frac{2}{4} + \\frac{1}{4} = \\frac{3}{4}$$."
+        },
+        {
+            "q": "Operación con un número entero: $$1 + \\frac{2}{3}$$",
+            "options": [
+                "$$\\frac{3}{3}$$",
+                "$$\\frac{5}{3}$$",
+                "$$\\frac{3}{4}$$",
+                "$$\\frac{2}{4}$$"
+            ],
+            "correct": 1,
+            "explanation": "Truco: Convierte el 1 en una fracción con el mismo denominador ($$\\frac{3}{3}$$). Así: $$\\frac{3}{3} + \\frac{2}{3} = \\frac{5}{3}$$."
+        },
+        {
+            "q": "Resta con distinto denominador: $$\\frac{3}{4} - \\frac{1}{2}$$",
+            "options": [
+                "$$\\frac{2}{2}$$",
+                "$$\\frac{1}{4}$$",
+                "$$\\frac{2}{6}$$",
+                "$$\\frac{4}{6}$$"
+            ],
+            "correct": 1,
+            "explanation": "Calculamos el m.c.m. de 4 y 2, que es 4. Convertimos $$\\frac{1}{2}$$ en $$\\frac{2}{4}$$. Ahora restamos: $$\\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4}$$."
+        },
+        {
+            "q": "Identifica el error común. Al calcular $$\\frac{1}{3} + \\frac{1}{5}$$, un alumno obtuvo $$\\frac{2}{8}$$. ¿Por qué está mal?",
+            "options": [
+                "Porque sumó los denominadores.",
+                "Porque debía restar.",
+                "El resultado es correcto.",
+                "Porque multiplicó en cruz."
+            ],
+            "correct": 0,
+            "explanation": "Este es el error más grave en fracciones. **Nunca** se suman los denominadores linealmente. Debes usar el mínimo común múltiplo (15)."
+        },
+        {
+            "q": "Calcula correctamente la operación anterior: $$\\frac{1}{3} + \\frac{1}{5}$$",
+            "options": [
+                "$$\\frac{2}{15}$$",
+                "$$\\frac{8}{15}$$",
+                "$$\\frac{1}{8}$$",
+                "$$\\frac{2}{8}$$"
+            ],
+            "correct": 1,
+            "explanation": "Denominador común es 15. Transformamos: $$\\frac{5}{15} + \\frac{3}{15} = \\frac{8}{15}$$."
+        },
+        {
+            "q": "Resta de un entero y una fracción: $$2 - \\frac{1}{2}$$",
+            "options": [
+                "$$\\frac{1}{2}$$",
+                "$$\\frac{3}{2}$$",
+                "$$\\frac{0}{2}$$",
+                "$$1$$"
+            ],
+            "correct": 1,
+            "explanation": "Imagina que tienes 2 tartas y quitas media. Matemáticamente: $$2 = \\frac{4}{2}$$. Entonces $$\\frac{4}{2} - \\frac{1}{2} = \\frac{3}{2}$$."
+        },
+        {
+            "q": "Suma de tres fracciones con mismo denominador: $$\\frac{1}{5} + \\frac{2}{5} + \\frac{1}{5}$$",
+            "options": [
+                "$$\\frac{4}{15}$$",
+                "$$\\frac{4}{5}$$",
+                "$$\\frac{3}{5}$$",
+                "$$\\frac{4}{25}$$"
+            ],
+            "correct": 1,
+            "explanation": "El denominador se mantiene quieto ($$5$$). Solo sumamos arriba: $$1+2+1 = 4$$. Resultado: $$\\frac{4}{5}$$."
+        },
+        {
+            "q": "Operación combinada simple: $$\\frac{3}{2} + \\frac{1}{2} - \\frac{2}{2}$$",
+            "options": [
+                "$$1$$",
+                "$$\\frac{2}{6}$$",
+                "$$0$$",
+                "$$\\frac{6}{2}$$"
+            ],
+            "correct": 0,
+            "explanation": "Al tener el mismo denominador, operamos directo: $$3 + 1 - 2 = 2$$. Nos queda $$\\frac{2}{2}$$, que es igual a la unidad (1)."
+        }
+    ]
+},
+"quiz_multiplicacion": {
+    "title": "Nivel 2: Multiplicación de Fracciones",
+    "questions": [
+        {
+            "q": "¿Cómo se multiplican dos fracciones? Ejemplo: $$\\frac{a}{b} \\cdot \\frac{c}{d}$$",
+            "options": [
+                "En línea (numerador por numerador y denominador por denominador).",
+                "En cruz (numerador por denominador opuesto).",
+                "Se busca el denominador común.",
+                "Se suman los exponentes."
+            ],
+            "correct": 0,
+            "explanation": "La multiplicación es la operación más directa: se multiplica recto. Los de arriba con los de arriba y los de abajo con los de abajo."
+        },
+        {
+            "q": "Calcula: $$\\frac{2}{3} \\cdot \\frac{4}{5}$$",
+            "options": [
+                "$$\\frac{8}{15}$$",
+                "$$\\frac{10}{12}$$",
+                "$$\\frac{6}{8}$$",
+                "$$\\frac{8}{8}$$"
+            ],
+            "correct": 0,
+            "explanation": "Multiplicamos en línea: $$2 \\cdot 4 = 8$$ y $$3 \\cdot 5 = 15$$. Resultado: $$\\frac{8}{15}$$."
+        },
+        {
+            "q": "Multiplicación de un entero por una fracción: $$3 \\cdot \\frac{2}{7}$$",
+            "options": [
+                "$$\\frac{6}{21}$$",
+                "$$\\frac{6}{7}$$",
+                "$$\\frac{5}{7}$$",
+                "$$\\frac{2}{21}$$"
+            ],
+            "correct": 1,
+            "explanation": "El entero solo multiplica al numerador (imagina que el 3 tiene un 1 debajo: $$\\frac{3}{1}$$). $$3 \\cdot 2 = 6$$, el 7 se queda igual."
+        },
+        {
+            "q": "Calcula el cuadrado de una fracción: $$(\\frac{2}{3})^2$$",
+            "options": [
+                "$$\\frac{4}{6}$$",
+                "$$\\frac{2}{9}$$",
+                "$$\\frac{4}{9}$$",
+                "$$\\frac{4}{3}$$"
+            ],
+            "correct": 2,
+            "explanation": "Elevar al cuadrado es multiplicar la fracción por sí misma: $$\\frac{2}{3} \\cdot \\frac{2}{3} = \\frac{4}{9}$$."
+        },
+        {
+            "q": "Fracción de una fracción: ¿Cuánto es la mitad de un cuarto ($$\\frac{1}{2} \\text{ de } \\frac{1}{4}$$)?",
+            "options": [
+                "$$\\frac{1}{8}$$",
+                "$$\\frac{2}{6}$$",
+                "$$\\frac{1}{2}$$",
+                "$$\\frac{1}{6}$$"
+            ],
+            "correct": 0,
+            "explanation": "En matemáticas, 'de' suele significar multiplicación. $$\\frac{1}{2} \\cdot \\frac{1}{4} = \\frac{1}{8}$$."
+        },
+        {
+            "q": "Simplifica el resultado de: $$\\frac{1}{2} \\cdot \\frac{4}{5}$$",
+            "options": [
+                "$$\\frac{5}{7}$$",
+                "$$\\frac{4}{10}$$",
+                "$$\\frac{2}{5}$$",
+                "$$\\frac{1}{5}$$"
+            ],
+            "correct": 2,
+            "explanation": "Primero multiplicamos: $$\\frac{4}{10}$$. Luego simplificamos dividiendo entre 2 arriba y abajo: $$\\frac{2}{5}$$."
+        },
+        {
+            "q": "Producto inverso: $$\\frac{3}{4} \\cdot \\frac{4}{3}$$",
+            "options": [
+                "$$\\frac{7}{7}$$",
+                "$$1$$",
+                "$$\\frac{12}{7}$$",
+                "$$0$$"
+            ],
+            "correct": 1,
+            "explanation": "Obtenemos $$\\frac{12}{12}$$. Cuando el numerador y el denominador son iguales, el resultado siempre es 1."
+        },
+        {
+            "q": "Área de un rectángulo de base $$\\frac{1}{2}$$ m y altura $$\\frac{2}{3}$$ m",
+            "options": [
+                "$$\\frac{3}{5} m^2$$",
+                "$$\\frac{1}{3} m^2$$",
+                "$$\\frac{2}{5} m^2$$",
+                "$$1 m^2$$"
+            ],
+            "correct": 1,
+            "explanation": "El área es base por altura: $$\\frac{1}{2} \\cdot \\frac{2}{3} = \\frac{2}{6}$$. Simplificado es $$\\frac{1}{3}$$."
+        },
+        {
+            "q": "Calcula el doble de un tercio ($$2 \\cdot \\frac{1}{3}$$)",
+            "options": [
+                "$$\\frac{2}{6}$$",
+                "$$\\frac{1}{6}$$",
+                "$$\\frac{2}{3}$$",
+                "$$\\frac{3}{2}$$"
+            ],
+            "correct": 2,
+            "explanation": "Multiplicamos el entero por el numerador: $$2 \\cdot 1 = 2$$. El denominador no cambia. Resultado: $$\\frac{2}{3}$$."
+        },
+        {
+            "q": "Multiplicación por cero: $$\\frac{7}{8} \\cdot 0$$",
+            "options": [
+                "$$\\frac{7}{8}$$",
+                "$$0$$",
+                "$$\\frac{0}{8}$$",
+                "$$1$$"
+            ],
+            "correct": 1,
+            "explanation": "Cualquier número (incluidas las fracciones) multiplicado por cero es siempre $$0$$."
+        }
+    ]
+},
+
+"quiz_division": {
+    "title": "Nivel 3: División de Fracciones",
+    "questions": [
+        {
+            "q": "¿Cómo se realiza la división de dos fracciones? $$\\frac{a}{b} : \\frac{c}{d}$$",
+            "options": [
+                "En línea (numerador entre numerador).",
+                "En cruz (se multiplican los términos cruzados).",
+                "Se calcula el m.c.m. de los denominadores.",
+                "Se restan los exponentes."
+            ],
+            "correct": 1,
+            "explanation": "Para dividir, multiplicamos en cruz: el numerador de la primera por el denominador de la segunda (arriba) y viceversa (abajo)."
+        },
+        {
+            "q": "Calcula: $$\\frac{1}{2} : \\frac{1}{3}$$",
+            "options": [
+                "$$\\frac{1}{6}$$",
+                "$$\\frac{3}{2}$$",
+                "$$\\frac{2}{3}$$",
+                "$$1$$"
+            ],
+            "correct": 1,
+            "explanation": "Multiplicamos en cruz: $$1 \\cdot 3$$ arriba (3) y $$2 \\cdot 1$$ abajo (2). Resultado: $$\\frac{3}{2}$$."
+        },
+        {
+            "q": "División de un entero entre una fracción: $$2 : \\frac{1}{2}$$",
+            "options": [
+                "$$1$$",
+                "$$4$$",
+                "$$\\frac{1}{4}$$",
+                "$$2$$"
+            ],
+            "correct": 1,
+            "explanation": "¿Cuántas mitades caben en 2 unidades? Caben 4. Matemáticamente: $$\\frac{2}{1} : \\frac{1}{2} \\rightarrow 2 \\cdot 2 = 4$$."
+        },
+        {
+            "q": "División de una fracción entre un entero: $$\\frac{1}{2} : 2$$",
+            "options": [
+                "$$1$$",
+                "$$\\frac{1}{4}$$",
+                "$$4$$",
+                "$$\\frac{2}{2}$$"
+            ],
+            "correct": 1,
+            "explanation": "Si repartes media tarta entre 2 personas, toca un cuarto a cada una. $$\\frac{1}{2} : \\frac{2}{1} = \\frac{1}{4}$$."
+        },
+        {
+            "q": "Propiedad fundamental: $$\\frac{3}{5} : \\frac{3}{5}$$",
+            "options": [
+                "$$1$$",
+                "$$0$$",
+                "$$\\frac{9}{25}$$",
+                "$$\\frac{6}{10}$$"
+            ],
+            "correct": 0,
+            "explanation": "Cualquier número dividido entre sí mismo es siempre 1. $$\\frac{15}{15} = 1$$."
+        },
+        {
+            "q": "Otra forma de dividir es multiplicar por la...",
+            "options": [
+                "Fracción opuesta.",
+                "Fracción inversa (darle la vuelta).",
+                "Misma fracción.",
+                "Fracción unidad."
+            ],
+            "correct": 1,
+            "explanation": "Dividir es lo mismo que multiplicar por la inversa de la segunda fracción. $$: \\frac{a}{b}$$ es igual a $$\\cdot \\frac{b}{a}$$."
+        },
+        {
+            "q": "Calcula y simplifica: $$\\frac{3}{4} : \\frac{1}{2}$$",
+            "options": [
+                "$$\\frac{3}{8}$$",
+                "$$\\frac{6}{4}$$",
+                "$$\\frac{3}{2}$$",
+                "$$\\frac{4}{6}$$"
+            ],
+            "correct": 2,
+            "explanation": "Operamos: $$\\frac{6}{4}$$. Simplificamos entre 2: $$\\frac{3}{2}$$."
+        },
+        {
+            "q": "Torre de fracciones: $$\\frac{1/3}{1/4}$$",
+            "options": [
+                "$$\\frac{4}{3}$$",
+                "$$\\frac{3}{4}$$",
+                "$$\\frac{1}{12}$$",
+                "$$12$$"
+            ],
+            "correct": 0,
+            "explanation": "Es una división vertical. Extremos arriba ($$1 \\cdot 4$$) y medios abajo ($$3 \\cdot 1$$). Resultado: $$\\frac{4}{3}$$."
+        },
+        {
+            "q": "Calcula: $$1 : \\frac{1}{3}$$",
+            "options": [
+                "$$\\frac{1}{3}$$",
+                "$$3$$",
+                "$$\\frac{3}{3}$$",
+                "$$0.33$$"
+            ],
+            "correct": 1,
+            "explanation": "El inverso de un tercio es 3. $$1 \\cdot 3 = 3$$."
+        },
+        {
+            "q": "Identifica el error: Al dividir $$\\frac{2}{3} : \\frac{4}{5}$$, alguien obtuvo $$\\frac{8}{15}$$.",
+            "options": [
+                "Es correcto.",
+                "Multiplicó en línea en vez de en cruz.",
+                "Sumó los numeradores.",
+                "No simplificó."
+            ],
+            "correct": 1,
+            "explanation": "Obtuvo $$\\frac{8}{15}$$ porque hizo $$2 \\cdot 4$$ y $$3 \\cdot 5$$. Eso es multiplicar, no dividir."
+        }
+    ]
+}
+    };
