@@ -890,6 +890,121 @@
         "style": "normal"
       }
     ]
-  }
+  },
+    "quiz_visual": {
+    "title": "Nivel Visual: Representación Gráfica",
+    "questions": [
+        {
+            "q": "¿Qué fracción representa la siguiente imagen? <br> $$ \\color{blue}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square} $$",
+            "options": [
+                "$$ \\frac{3}{5} $$",
+                "$$ \\frac{2}{5} $$",
+                "$$ \\frac{3}{2} $$",
+                "$$ \\frac{5}{3} $$"
+            ],
+            "correct": 0,
+            "explanation": "Hay 5 cuadrados en total (denominador). De ellos, 3 están pintados de azul (numerador)."
+        },
+        {
+            "q": "Selecciona la representación correcta para la fracción $$ \\frac{1}{4} $$",
+            "options": [
+                "$$ \\color{red}{\\blacksquare} \\color{lightgray}{\\square \\square \\square} $$",
+                "$$ \\color{red}{\\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square} $$",
+                "$$ \\color{red}{\\blacksquare} \\color{lightgray}{\\square \\square \\square \\square} $$",
+                "$$ \\color{lightgray}{\\square \\square \\square \\square} $$"
+            ],
+            "correct": 0,
+            "explanation": "Necesitamos 1 cuadrado pintado de un total de 4 cuadrados."
+        },
+        {
+            "q": "Mira esta barra de chocolate. ¿Cuánto nos hemos comido (puntos azules)? <br> $$ \\begin{array}{|c|c|c|c|c|c|} \\hline \\color{blue}{\\bullet} & \\color{blue}{\\bullet} & \\color{blue}{\\bullet} & \\color{blue}{\\bullet} & \\circ & \\circ \\\\ \\hline \\end{array} $$",
+            "options": [
+                "$$ \\frac{4}{6} $$",
+                "$$ \\frac{2}{6} $$",
+                "$$ \\frac{4}{2} $$",
+                "$$ \\frac{6}{4} $$"
+            ],
+            "correct": 0,
+            "explanation": "La barra tiene 6 trozos en total. Hay 4 marcados con puntos azules. La fracción es 4/6 (que simplificada sería 2/3)."
+        },
+        {
+            "q": "¿Qué fracción es MAYOR que la representada aquí? <br> $$ \\color{green}{\\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square \\square} $$",
+            "options": [
+                "$$ \\frac{3}{5} $$",
+                "$$ \\frac{1}{5} $$",
+                "$$ \\frac{2}{5} $$",
+                "$$ \\frac{1}{10} $$"
+            ],
+            "correct": 0,
+            "explanation": "La imagen muestra 2/5. Buscamos una fracción mayor. 3/5 es mayor que 2/5."
+        },
+        {
+            "q": "Suma visual: <br> $$ \\left( \\color{orange}{\\blacksquare} \\color{lightgray}{\\square \\square} \\right) + \\left( \\color{orange}{\\blacksquare} \\color{lightgray}{\\square \\square} \\right) $$",
+            "options": [
+                "$$ \\frac{2}{3} $$",
+                "$$ \\frac{2}{6} $$",
+                "$$ \\frac{1}{3} $$",
+                "$$ \\frac{3}{3} $$"
+            ],
+            "correct": 0,
+            "explanation": "Tenemos 1/3 más 1/3. En total son 2 cuadrados naranjas de cada grupo de 3. Resultado: 2/3."
+        },
+        {
+            "q": "¿Cuál de estas barras representa una fracción **impropia** (más de la unidad)?",
+            "options": [
+                "$$ \\color{purple}{\\blacksquare \\blacksquare \\blacksquare} \\; \\color{purple}{\\blacksquare} \\color{lightgray}{\\square \\square} $$",
+                "$$ \\color{purple}{\\blacksquare \\blacksquare} \\color{lightgray}{\\square} $$",
+                "$$ \\color{purple}{\\blacksquare} \\color{lightgray}{\\square \\square \\square} $$",
+                "$$ \\color{lightgray}{\\square \\square} $$"
+            ],
+            "correct": 0,
+            "explanation": "La primera opción muestra un entero completo (3/3) más otro trozo (1/3). Es decir, 4/3, que es impropia."
+        },
+        {
+            "q": "Equivalencia visual. ¿Qué imagen representa lo mismo que $$ \\frac{1}{2} $$?",
+            "options": [
+                "$$ \\color{blue}{\\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square} $$",
+                "$$ \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square} $$",
+                "$$ \\color{blue}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square} $$",
+                "$$ \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square \\square \\square} $$"
+            ],
+            "correct": 0,
+            "explanation": "La primera opción muestra 2/4. Si simplificamos 2/4, obtenemos 1/2."
+        },
+        {
+            "q": "Resta visual: <br> $$ \\color{red}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square} - \\color{red}{\\blacksquare} $$",
+            "options": [
+                "$$ \\frac{2}{4} $$",
+                "$$ \\frac{3}{4} $$",
+                "$$ \\frac{1}{4} $$",
+                "$$ \\frac{2}{3} $$"
+            ],
+            "correct": 0,
+            "explanation": "Tenemos 3/4 y quitamos 1/4 (un cuadrado rojo). Nos quedan 2 cuadrados rojos de 4. Resultado: 2/4."
+        },
+        {
+            "q": "Completa para llegar a la unidad (1): <br> Tienes $$ \\color{green}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square} $$. ¿Cuántos faltan?",
+            "options": [
+                "$$ \\frac{2}{5} $$",
+                "$$ \\frac{3}{5} $$",
+                "$$ \\frac{1}{5} $$",
+                "$$ \\frac{5}{5} $$"
+            ],
+            "correct": 0,
+            "explanation": "Hay 3 verdes de 5 totales (3/5). Para completar la barra (5/5) faltan los 2 grises (2/5)."
+        },
+        {
+            "q": "¿Qué porcentaje representa esta fracción? <br> $$ \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square \\square} $$",
+            "options": [
+                "25%",
+                "50%",
+                "75%",
+                "10%"
+            ],
+            "correct": 0,
+            "explanation": "Es 1 de 4 ($$ \\frac{1}{4} $$). Si divides 100 entre 4, toca a 25. Es el 25%."
+        }
+    ]
+}
     
 }
