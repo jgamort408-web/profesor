@@ -892,7 +892,7 @@
     ]
   },
     "quiz_visual": {
-    "title": "Nivel Visual: Representación Gráfica",
+    "title": "Visual 1: Representación Gráfica",
     "questions": [
         {
             "q": "¿Qué fracción representa la siguiente imagen? <br> $$ \\color{blue}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square \\square} $$",
@@ -1007,7 +1007,7 @@
     ]
 },
     "quiz_visual_sumas": {
-    "title": "Visual: Sumas y Restas",
+    "title": "Visual 2: Sumas y Restas",
     "questions": [
         {
             "q": "¿Qué suma representa esta imagen? <br> $$ \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square} \\; + \\; \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square} $$",
@@ -1077,7 +1077,7 @@
     ]
 },
     "quiz_visual_mult_div": {
-    "title": "Visual: Multiplicación y División",
+    "title": "Visual 3: Multiplicación y División",
     "questions": [
         {
             "q": "Multiplicación como Área. ¿Qué representa esta rejilla? <br> $$ \\begin{array}{|c|c|} \\hline \\color{blue}{\\bullet} & \\circ \\\\ \\hline \\circ & \\circ \\\\ \\hline \\end{array} $$",
@@ -1142,7 +1142,7 @@
     ]
 },
     "quiz_visual_combinadas": {
-    "title": "Visual: Operaciones Combinadas",
+    "title": "Visual 4: Operaciones Combinadas",
     "questions": [
         {
             "q": "Paso 1: Paréntesis. Resuelve visualmente: <br> $$ 2 \\cdot \\left( \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square} + \\color{blue}{\\blacksquare} \\color{lightgray}{\\square \\square} \\right) $$",
