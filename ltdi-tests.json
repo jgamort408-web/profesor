@@ -482,7 +482,7 @@
     ]
   },
 "quiz_teoria_flashcards": {
-    "title": "Teoría: Conceptos Fundamentales",
+    "title": "Teoría 1: Conceptos Fundamentales",
     "questions": [
       {
         "q": "¿Qué representa una **Fracción**?",
@@ -618,7 +618,7 @@
   },
 
     "quiz_proporcionalidad": {
-    "title": "Teoría: Proporcionalidad y Porcentajes",
+    "title": "Teoría2 : Proporcionalidad y Porcentajes",
     "questions": [
       {
         "q": "¿Qué es una **Razón** en matemáticas?",
@@ -756,7 +756,7 @@
   },
 
     "quiz_algebra": {
-    "title": "Teoría: Iniciación al Álgebra",
+    "title": "Teoría 3: Iniciación al Álgebra",
     "questions": [
       {
         "q": "Definición: ¿Qué es una **Variable** en matemáticas?",
