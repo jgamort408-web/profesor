@@ -972,7 +972,7 @@
             "explanation": "La primera opción muestra 2/4. Si simplificamos 2/4, obtenemos 1/2."
         },
         {
-            "q": "Resta visual: <br> $$ \\color{red}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square} - \\color{red}{\\blacksquare} $$",
+            "q": "Resta visual: <br> $$ \\color{red}{\\blacksquare \\blacksquare \\blacksquare} \\color{lightgray}{\\square} - \\color{red}{\\blacksquare}\\color{lightgray}{\\square \\square \\square} $$",
             "options": [
                 "$$ \\frac{2}{4} $$",
                 "$$ \\frac{3}{4} $$",
