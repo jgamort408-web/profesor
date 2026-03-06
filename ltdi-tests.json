@@ -1205,6 +1205,266 @@
             "explanation": "Si tienes media manzana y te comes media manzana, te quedan cero manzanas."
         }
     ]
-}
+},
+"quiz_lenguaje_algebraico": {
+    "title": "Álgebra 1: Lenguaje Algebraico Básico",
+    "questions": [
+        {
+            "q": "¿Cómo se expresa algebraicamente \"un número cualquiera\"?",
+            "options": ["$$ x $$", "$$ 1 $$", "$$ x + 1 $$", "$$ 0 $$"],
+            "correct": 0,
+            "explanation": "En álgebra, utilizamos letras (comúnmente la 'x') para representar un valor desconocido o variable."
+        },
+        {
+            "q": "¿Cuál es la expresión para \"el doble de un número\"?",
+            "options": ["$$ x + 2 $$", "$$ x^2 $$", "$$ 2x $$", "$$ \\frac{x}{2} $$"],
+            "correct": 2,
+            "explanation": "Para hallar el doble multiplicamos por 2. En álgebra, 2 multiplicado por x se escribe 2x."
+        },
+        {
+            "q": "Traduce: \"La mitad de un número\"",
+            "options": ["$$ x - 2 $$", "$$ \\frac{x}{2} $$", "$$ 2x $$", "$$ x^2 $$"],
+            "correct": 1,
+            "explanation": "La mitad de cualquier cantidad se obtiene dividiéndola entre 2, lo cual se representa como una fracción."
+        },
+        {
+            "q": "Elige la opción que representa \"un número aumentado en cinco\":",
+            "options": ["$$ 5x $$", "$$ x - 5 $$", "$$ \\frac{x}{5} $$", "$$ x + 5 $$"],
+            "correct": 3,
+            "explanation": "La palabra 'aumentado' se traduce matemáticamente como una suma (+)."
+        },
+        {
+            "q": "¿Cómo escribes \"el cuadrado de un número\"?",
+            "options": ["$$ x^2 $$", "$$ 2x $$", "$$ \\sqrt{x} $$", "$$ x + 2 $$"],
+            "correct": 0,
+            "explanation": "El 'cuadrado' de un número significa elevar ese número a la potencia de 2 (su exponente es 2)."
+        },
+        {
+            "q": "Selecciona la expresión para \"el número anterior a x\":",
+            "options": ["$$ x + 1 $$", "$$ x - 1 $$", "$$ -x $$", "$$ 1 - x $$"],
+            "correct": 1,
+            "explanation": "Para encontrar el número que va justo antes de cualquier número entero, siempre le restamos 1."
+        },
+        {
+            "q": "Traduce la frase: \"El triple de un número, menos cuatro\"",
+            "options": ["$$ 3(x - 4) $$", "$$ 4x - 3 $$", "$$ 3x - 4 $$", "$$ \\frac{x}{3} - 4 $$"],
+            "correct": 2,
+            "explanation": "La coma en la frase indica el orden: primero multiplicas por 3 (el triple), y a ese resultado le restas 4."
+        },
+        {
+            "q": "¿Cuál es \"la suma de un número y su doble\"?",
+            "options": ["$$ x + 2 $$", "$$ x + x^2 $$", "$$ 2x + 3x $$", "$$ x + 2x $$"],
+            "correct": 3,
+            "explanation": "Identificamos las dos partes: 'el número' es x, 'su doble' es 2x. Ambas partes se suman."
+        },
+        {
+            "q": "¿Cómo se expresa \"el cuádruple de la suma de un número y tres\"?",
+            "options": ["$$ 4x + 3 $$", "$$ 4(x + 3) $$", "$$ x + 12 $$", "$$ \\frac{x+3}{4} $$"],
+            "correct": 1,
+            "explanation": "Para que el cuádruple (multiplicar por 4) afecte a TODA la suma, y no solo a la x, debemos agrupar la suma entre paréntesis."
+        },
+        {
+            "q": "Traduce correctamente: \"La tercera parte de un número, más uno\"",
+            "options": ["$$ \\frac{x+1}{3} $$", "$$ 3x + 1 $$", "$$ \\frac{x}{3} + 1 $$", "$$ x + \\frac{1}{3} $$"],
+            "correct": 2,
+            "explanation": "Primero tomas el número y lo divides entre 3 (su tercera parte), y de forma independiente le sumas 1."
+        }
+    ]
+},
+    "quiz_suma_monomios": {
+    "title": "Álgebra 2: Suma y Resta de Monomios",
+    "questions": [
+        {
+            "q": "Suma los siguientes monomios: $$ 3x + 4x $$",
+            "options": ["$$ 7x $$", "$$ 7x^2 $$", "$$ 12x $$", "$$ 7 $$"],
+            "correct": 0,
+            "explanation": "Al sumar monomios semejantes, se suman los números (coeficientes) y se deja exactamente la misma letra. 3 + 4 = 7, así que son 7x."
+        },
+        {
+            "q": "Resuelve esta resta: $$ 8x - 3x $$",
+            "options": ["$$ 5 $$", "$$ 11x $$", "$$ 5x $$", "$$ 5x^2 $$"],
+            "correct": 2,
+            "explanation": "Igual que en la suma, restamos los números (8 - 3 = 5) y mantenemos la letra intacta."
+        },
+        {
+            "q": "Agrupa estos términos: $$ x + 5x $$",
+            "options": ["$$ 5x $$", "$$ 6x^2 $$", "$$ 5x^2 $$", "$$ 6x $$"],
+            "correct": 3,
+            "explanation": "Recuerda que una 'x' sola tiene un '1' invisible delante (1x). Por tanto, 1x + 5x = 6x."
+        },
+        {
+            "q": "Simplifica la expresión: $$ x + x + x + x $$",
+            "options": ["$$ 4x $$", "$$ x^4 $$", "$$ 4x^4 $$", "$$ 4 $$"],
+            "correct": 0,
+            "explanation": "Sumar cuatro veces la misma variable es lo mismo que multiplicarla por 4. Los exponentes no cambian al sumar."
+        },
+        {
+            "q": "¿Cuál es el resultado de $$ 4x + 2x - x $$?",
+            "options": ["$$ 6x $$", "$$ 7x $$", "$$ 5x $$", "$$ 5 $$"],
+            "correct": 2,
+            "explanation": "Operamos de izquierda a derecha: 4x + 2x = 6x. Luego le restamos 1x, lo que nos da 5x."
+        },
+        {
+            "q": "Calcula prestando atención a los signos: $$ 2x - 7x $$",
+            "options": ["$$ 5x $$", "$$ -5x $$", "$$ -9x $$", "$$ 9x $$"],
+            "correct": 1,
+            "explanation": "Al restar un número mayor a uno menor, el resultado es negativo (2 - 7 = -5). La 'x' acompaña al resultado."
+        },
+        {
+            "q": "Suma estos dos términos: $$ 5x^2 + 4x^2 $$",
+            "options": ["$$ 9x^4 $$", "$$ 20x^2 $$", "$$ 9x $$", "$$ 9x^2 $$"],
+            "correct": 3,
+            "explanation": "Son semejantes porque ambos tienen 'x²'. Sumamos 5+4=9 y dejamos la MISMA parte literal (x²)."
+        },
+        {
+            "q": "¿Qué obtenemos al calcular $$ 6x - 6x $$?",
+            "options": ["$$ x $$", "$$ 0 $$", "$$ 1 $$", "$$ 12x $$"],
+            "correct": 1,
+            "explanation": "Si a una cantidad le restas exactamente la misma cantidad, el resultado es cero. No hace falta poner '0x'."
+        },
+        {
+            "q": "¿Se pueden sumar $$ 2x $$ y $$ 3x^2 $$?",
+            "options": ["Sí, el resultado es $$ 5x^3 $$", "Sí, el resultado es $$ 5x^2 $$", "No, porque no son términos semejantes", "Sí, el resultado es $$ 6x^3 $$"],
+            "correct": 2,
+            "explanation": "Para poder sumar o restar monomios, deben tener exactamente la misma letra y el mismo exponente. Como 'x' y 'x²' son distintos, la expresión se queda igual."
+        },
+        {
+            "q": "Simplifica esta expresión combinada: $$ 3x + 2x + 5 $$",
+            "options": ["$$ 10x $$", "$$ 5x + 5 $$", "$$ 10 $$", "$$ 5x^2 + 5 $$"],
+            "correct": 1,
+            "explanation": "Solo puedes agrupar las 'x' con las 'x' (3x + 2x = 5x). El número suelto (+ 5) pertenece a otra familia y se deja como está."
+        }
+    ]
+},
+    "quiz_suma_binomios": {
+    "title": "Álgebra 3: Suma y Resta de Binomios",
+    "questions": [
+        {
+            "q": "Suma los siguientes binomios: $$ (x + 2) + (x + 3) $$",
+            "options": ["$$ 2x + 5 $$", "$$ x^2 + 5 $$", "$$ 2x + 6 $$", "$$ 5x $$"],
+            "correct": 0,
+            "explanation": "Debes sumar las letras por un lado (x + x = 2x) y los números sueltos por otro (2 + 3 = 5)."
+        },
+        {
+            "q": "Resuelve prestando atención a los signos: $$ (3x - 1) + (2x + 4) $$",
+            "options": ["$$ 5x + 5 $$", "$$ 5x + 3 $$", "$$ 6x - 4 $$", "$$ x + 3 $$"],
+            "correct": 1,
+            "explanation": "Agrupamos las 'x' (3x + 2x = 5x) y agrupamos los números (-1 + 4 = 3). ¡Cuidado con el signo negativo del 1!"
+        },
+        {
+            "q": "Suma un binomio con un monomio: $$ (4x + 7) + 2x $$",
+            "options": ["$$ 6x + 7 $$", "$$ 13x $$", "$$ 4x + 9 $$", "$$ 6x + 14 $$"],
+            "correct": 0,
+            "explanation": "El término 2x solo se puede sumar con su 'familia', que es el 4x (4x + 2x = 6x). El 7 se queda igual."
+        },
+        {
+            "q": "¡Cuidado con la resta! Calcula: $$ (5x + 4) - (2x + 1) $$",
+            "options": ["$$ 3x + 5 $$", "$$ 7x + 5 $$", "$$ 3x + 3 $$", "$$ 7x + 3 $$"],
+            "correct": 2,
+            "explanation": "El signo menos delante del segundo paréntesis cambia TODOS sus signos, convirtiéndose en -2x - 1. Luego restamos: 5x - 2x = 3x, y 4 - 1 = 3."
+        },
+        {
+            "q": "Otra resta engañosa: $$ (6x + 5) - (x - 2) $$",
+            "options": ["$$ 5x + 3 $$", "$$ 5x + 7 $$", "$$ 7x + 3 $$", "$$ 5x - 7 $$"],
+            "correct": 1,
+            "explanation": "Al quitar el paréntesis con el menos delante, el '- 2' se convierte en '+ 2'. Así que agrupamos: 6x - x = 5x, y 5 + 2 = 7."
+        },
+        {
+            "q": "Suma estos dos binomios opuestos: $$ (2x + 5) + (-2x - 5) $$",
+            "options": ["$$ 4x + 10 $$", "$$ -4x - 10 $$", "$$ 0 $$", "$$ x $$"],
+            "correct": 2,
+            "explanation": "Al sumar términos opuestos, se cancelan. 2x - 2x = 0, y 5 - 5 = 0. El resultado final es 0."
+        },
+        {
+            "q": "¿Qué pasa si intentamos sumar esto? $$ (x^2 + 3) + (x + 2) $$",
+            "options": ["$$ x^3 + 5 $$", "$$ 2x^2 + 5 $$", "$$ 2x + 5 $$", "$$ x^2 + x + 5 $$"],
+            "correct": 3,
+            "explanation": "Recuerda que 'x²' y 'x' no son términos semejantes y no se pueden mezclar. Solo podemos sumar los números (3 + 2 = 5)."
+        },
+        {
+            "q": "Simplifica la expresión: $$ (1 + 4x) + (2x - 3) $$",
+            "options": ["$$ 6x - 2 $$", "$$ 6x + 4 $$", "$$ 5x - 1 $$", "$$ 2x - 2 $$"],
+            "correct": 0,
+            "explanation": "El orden dentro del paréntesis no importa. Sumamos las 'x' (4x + 2x = 6x) y los números (1 - 3 = -2)."
+        },
+        {
+            "q": "Resta estos binomios: $$ (8x - 3) - (8x + 3) $$",
+            "options": ["$$ 0 $$", "$$ 16x $$", "$$ -6 $$", "$$ 16x - 6 $$"],
+            "correct": 2,
+            "explanation": "El menos cambia el signo del segundo paréntesis: -8x - 3. Agrupamos: 8x - 8x = 0 (desaparece la x), y -3 - 3 = -6."
+        },
+        {
+            "q": "Reto final, agrupa todo: $$ x + (3x + 1) + (x - 1) $$",
+            "options": ["$$ 5x $$", "$$ 4x + 2 $$", "$$ 5x + 2 $$", "$$ 4x $$"],
+            "correct": 0,
+            "explanation": "Sumamos todas las variables: 1x + 3x + 1x = 5x. Sumamos los números: +1 - 1 = 0. Resultado final: 5x."
+        }
+    ]
+},
+   "quiz_algebra_visual": {
+    "title": "Álgebra Visual: Fichas y Baldosas de diferentes tipos",
+    "questions": [
+        {
+            "q": "Leyenda: Si $$ \\color{green}{\\blacksquare} = x $$ y $$ \\color{blue}{\\bullet} = 1 $$. <br> ¿Qué polinomio representa $$ \\color{green}{\\blacksquare \\blacksquare} \\; \\color{blue}{\\bullet \\bullet \\bullet} $$?",
+            "options": ["$$ 2x + 3 $$", "$$ x^2 + 3 $$", "$$ 5x $$", "$$ 2x - 3 $$"],
+            "correct": 0,
+            "explanation": "Hay 2 cuadrados verdes (2x) y 3 círculos azules (+3). Juntos forman la expresión 2x + 3."
+        },
+        {
+            "q": "Añadimos negativos: $$ \\color{red}{\\blacksquare} = -x $$ y $$ \\color{orange}{\\bullet} = -1 $$. <br> ¿Qué expresión es $$ \\color{red}{\\blacksquare \\blacksquare} \\; \\color{blue}{\\bullet} $$?",
+            "options": ["$$ 2x + 1 $$", "$$ -2x + 1 $$", "$$ -2x - 1 $$", "$$ x - 2 $$"],
+            "correct": 1,
+            "explanation": "Los 2 cuadrados rojos representan -2x, y el círculo azul suelto representa +1. Por tanto, es -2x + 1."
+        },
+        {
+            "q": "Suma visual: Tienes $$ \\color{green}{\\blacksquare} $$ y te dan $$ \\color{green}{\\blacksquare \\blacksquare} $$. <br> ¿Cuánto tienes en total?",
+            "options": ["$$ 3x $$", "$$ 3x^2 $$", "$$ 3 $$", "$$ x^3 $$"],
+            "correct": 0,
+            "explanation": "Un cuadrado verde más dos cuadrados verdes equivalen a tres cuadrados verdes: $$ \\color{green}{\\blacksquare \\blacksquare \\blacksquare} $$ (3x)."
+        },
+        {
+            "q": "Principio de Aniquilación (Cero): ¿Qué ocurre si juntas una ficha positiva y una negativa $$ \\color{blue}{\\bullet} \\color{orange}{\\bullet} $$?",
+            "options": ["$$ 2 $$", "$$ -2 $$", "$$ 0 $$", "$$ 1 $$"],
+            "correct": 2,
+            "explanation": "Un positivo (+1) y un negativo (-1) se neutralizan mutuamente, desapareciendo y dando como resultado 0."
+        },
+        {
+            "q": "Simplifica eliminando los opuestos: <br> $$ \\color{green}{\\blacksquare \\blacksquare \\blacksquare} \\; \\color{red}{\\blacksquare} $$",
+            "options": ["$$ 4x $$", "$$ 2x $$", "$$ -2x $$", "$$ 0 $$"],
+            "correct": 1,
+            "explanation": "Tienes 3x y -1x. Un cuadrado rojo aniquila a un cuadrado verde. Nos quedan 2 cuadrados verdes (2x)."
+        },
+        {
+            "q": "Suma de binomios visual: <br> $$ (\\color{green}{\\blacksquare \\blacksquare} \\; \\color{blue}{\\bullet}) + (\\color{green}{\\blacksquare} \\; \\color{orange}{\\bullet \\bullet}) $$",
+            "options": ["$$ 3x - 1 $$", "$$ 3x + 3 $$", "$$ 2x - 1 $$", "$$ x + 1 $$"],
+            "correct": 0,
+            "explanation": "Juntamos los cuadrados: 2 verdes + 1 verde = 3 verdes (3x). Juntamos los círculos: 1 azul (+1) y 2 naranjas (-2). Un azul aniquila a un naranja, quedando 1 naranja (-1)."
+        },
+        {
+            "q": "El opuesto: Para calcular el opuesto de un binomio, cambiamos el color de todas las fichas. <br> ¿Cuál es el opuesto de $$ \\color{green}{\\blacksquare} \\; \\color{orange}{\\bullet \\bullet} $$ ($$ x - 2 $$)?",
+            "options": ["$$ -x - 2 $$", "$$ x + 2 $$", "$$ -x + 2 $$", "$$ 2x $$"],
+            "correct": 2,
+            "explanation": "El verde pasa a ser rojo (-x) y los naranjas pasan a ser azules (+2). El resultado es $$ \\color{red}{\\blacksquare} \\; \\color{blue}{\\bullet \\bullet} $$ (-x + 2)."
+        },
+        {
+            "q": "Resta visual directa: A la expresión $$ \\color{green}{\\blacksquare \\blacksquare} \\; \\color{blue}{\\bullet \\bullet \\bullet} $$ le quitamos físicamente $$ \\color{green}{\\blacksquare} \\; \\color{blue}{\\bullet} $$. ¿Qué queda?",
+            "options": ["$$ x + 2 $$", "$$ 2x + 2 $$", "$$ x + 4 $$", "$$ x - 2 $$"],
+            "correct": 0,
+            "explanation": "Teníamos 2x + 3. Si le retiramos 1x y 1, nos queda 1x y 2 (x + 2)."
+        },
+        {
+            "q": "Multiplicación visual: Crea el triple de este grupo: <br> $$ 3 \\cdot (\\color{green}{\\blacksquare} \\; \\color{orange}{\\bullet}) $$",
+            "options": ["$$ 3x - 1 $$", "$$ 3x - 3 $$", "$$ x - 3 $$", "$$ 3x + 3 $$"],
+            "correct": 1,
+            "explanation": "Debes repetir el grupo entero 3 veces. Obtendrás 3 cuadrados verdes y 3 círculos naranjas: $$ \\color{green}{\\blacksquare \\blacksquare \\blacksquare} \\; \\color{orange}{\\bullet \\bullet \\bullet} $$ (3x - 3)."
+        },
+        {
+            "q": "Gran simplificación: <br> $$ \\color{green}{\\blacksquare \\blacksquare} \\; \\color{red}{\\blacksquare \\blacksquare \\blacksquare} \\; \\color{blue}{\\bullet \\bullet \\bullet} \\; \\color{orange}{\\bullet} $$",
+            "options": ["$$ -x + 2 $$", "$$ x + 2 $$", "$$ -5x + 4 $$", "$$ x - 2 $$"],
+            "correct": 0,
+            "explanation": "Los 2 verdes se aniquilan con 2 rojos, dejando 1 rojo (-x). Un azul se aniquila con un naranja, dejando 2 azules (+2). Resultado: -x + 2."
+        }
+    ]
+} 
     
 }
