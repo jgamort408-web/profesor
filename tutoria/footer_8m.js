@@ -2,14 +2,6 @@
 
 const footerCode = `
 <style>
-    /* ESTO FUERZA A LA PÁGINA A APILARSE EN VERTICAL */
-    body {
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        min-height: 100vh;
-    }
-    
     .custom-footer {
         background-color: transparent;
         padding: 40px 20px 20px 20px;
@@ -18,9 +10,8 @@ const footerCode = `
         color: #6B7280;
         font-size: 0.95rem;
         border-top: 1px solid #E5E7EB;
-        margin-top: auto; /* Esto empuja el footer hacia el final */
+        margin-top: 50px;
         width: 100%;
-        max-width: 1000px;
         box-sizing: border-box;
         line-height: 1.6;
     }
@@ -86,5 +77,12 @@ const footerCode = `
 </footer>
 `;
 
-// Inyectamos el footer directamente al final del cuerpo de la página
-document.body.insertAdjacentHTML('beforeend', footerCode);
+// Buscamos el contenedor principal de la página
+const mainContainer = document.querySelector('.main-container');
+
+// Si existe el contenedor, metemos el footer dentro (al final). Si no, lo metemos en el body.
+if (mainContainer) {
+    mainContainer.insertAdjacentHTML('beforeend', footerCode);
+} else {
+    document.body.insertAdjacentHTML('beforeend', footerCode);
+}
