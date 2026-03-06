@@ -24,13 +24,13 @@ const footerCode = `
         font-size: 1.1rem;
     }
     .custom-footer a.school-link {
-        color: #9333EA; /* Morado brillante de la web */
+        color: #9333EA;
         text-decoration: none;
         font-weight: 600;
         transition: color 0.3s ease;
     }
     .custom-footer a.school-link:hover { 
-        color: #581C87; /* Morado profundo al pasar el ratón */
+        color: #581C87;
         text-decoration: underline; 
     }
     .cc-container {
@@ -77,5 +77,12 @@ const footerCode = `
 </footer>
 `;
 
-// Insertar el footer justo antes de cerrar la etiqueta </body>
-document.body.insertAdjacentHTML('beforeend', footerCode);
+// Buscamos el contenedor principal de la página
+const mainContainer = document.querySelector('.main-container');
+
+// Si existe el contenedor, metemos el footer dentro (al final). Si no, lo metemos en el body.
+if (mainContainer) {
+    mainContainer.insertAdjacentHTML('beforeend', footerCode);
+} else {
+    document.body.insertAdjacentHTML('beforeend', footerCode);
+}
