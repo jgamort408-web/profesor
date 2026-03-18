@@ -74,7 +74,8 @@
     list-style: none;
   }
 
-  .nav-links a {
+  .nav-links a,
+  .nav-links button {
     font-size: 0.75rem;
     font-weight: 500;
     text-decoration: none;
@@ -83,9 +84,14 @@
     border-radius: 4px;
     transition: all 0.2s;
     white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
   }
 
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .nav-links button:hover {
     background: var(--cream);
     color: var(--accent);
   }
@@ -818,11 +824,11 @@
 <nav>
   <div class="nav-logo">IA <span>·</span> Docencia</div>
   <ul class="nav-links">
-    <li><a href="#guia">Guía Prompts</a></li>
-    <li><a href="#mejorar">Mejorar Prompts</a></li>
-    <li><a href="#gemini">Gemini Pro</a></li>
-    <li><a href="#asignaturas">Por Asignatura</a></li>
-    <li><a href="#prompts">Prompts Listos</a></li>
+    <li><button onclick="navTo('guia')">Guía Prompts</button></li>
+    <li><button onclick="navTo('mejorar')">Mejorar Prompts</button></li>
+    <li><button onclick="navTo('gemini')">Gemini Pro</button></li>
+    <li><button onclick="navTo('asignaturas')">Por Asignatura</button></li>
+    <li><button onclick="navTo('prompts')">Prompts Listos</button></li>
   </ul>
 </nav>
 
@@ -833,8 +839,8 @@
     <h1>La <em>Inteligencia Artificial</em><br>en tu aula</h1>
     <p>Una guía práctica y completa para integrar la IA en tu docencia: desde los primeros prompts hasta recursos listos para usar en clase.</p>
     <div class="hero-cta">
-      <a href="#guia" class="btn btn-primary">▶ Empezar ahora</a>
-      <a href="#prompts" class="btn btn-secondary">📋 Ver prompts listos</a>
+      <button onclick="navTo('guia')" class="btn btn-primary">▶ Empezar ahora</button>
+      <button onclick="navTo('prompts')" class="btn btn-secondary">📋 Ver prompts listos</button>
     </div>
     <div class="scroll-indicator">
       <span>Explora</span>
@@ -1692,6 +1698,13 @@ Esta técnica de las tres versiones me ayudará a entender el concepto en profun
     observer.observe(el);
   });
 
+  // ── SCROLL TO SECTION (compatible con Google Sites iframes) ──
+  function navTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   // ── ACTIVE NAV ──
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
@@ -1700,8 +1713,9 @@ Esta técnica de las tres versiones me ayudará a entender el concepto en profun
       if (window.scrollY >= s.offsetTop - 100) current = s.id;
     });
     document.querySelectorAll('.nav-links a').forEach(a => {
-      a.style.fontWeight = a.getAttribute('href') === '#' + current ? '600' : '500';
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+      const match = a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + current + "'");
+      a.style.fontWeight = match ? '600' : '500';
+      a.style.color = match ? 'var(--accent)' : '';
     });
   });
 </script>
