@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA en el Aula · Guía Docente</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --paper: #faf8f4;
+    --cream: #f0ece3;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --rust: #b85c38;
+    --sage: #5a7a5e;
+    --slate: #4a5568;
+    --accent: #1a3a5c;
+    --accent-light: #2a5a8c;
+    --border: #d4cfc5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--slate);
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    background: var(--cream);
+    color: var(--accent);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 7rem 2rem 4rem;
+    background: linear-gradient(160deg, var(--paper) 0%, var(--cream) 60%, #e8e0d0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: 'IA';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(180px, 30vw, 400px);
+    font-weight: 900;
+    color: rgba(201,168,76,0.08);
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-badge::before { content: '◆'; color: var(--gold); font-size: 0.6em; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--slate);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,58,92,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-secondary:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    color: var(--slate);
+    font-size: 1rem;
+    max-width: 620px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* ── ALTERNATING SECTIONS ── */
+  section:nth-child(even) {
+    background: var(--cream);
+  }
+
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--rust));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ── PROMPT ELEMENTS ── */
+  .prompt-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .element-pill {
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .element-pill .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .element-pill strong {
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .element-pill p {
+    font-size: 0.82rem;
+    color: var(--slate);
+  }
+
+  /* ── PROMPT BLOCKS ── */
+  .prompt-block {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .prompt-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .prompt-block-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .copy-btn {
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .copy-btn:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  .copy-btn.copied {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: #fff;
+  }
+
+  .prompt-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    color: #e8e0d0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .prompt-text .var {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .prompt-text .keyword {
+    color: #7fb3e8;
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--slate);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    border-radius: 6px 6px 0 0;
+  }
+
+  .tab-btn:hover { color: var(--accent); background: var(--cream); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── SUBJECT TABS ── */
+  .subject-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .subject-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: sticky;
+    top: 80px;
+  }
+
+  .subject-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid transparent;
+    background: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--slate);
+    border-radius: 8px;
+    text-align: left;
+    transition: all 0.2s;
+  }
+
+  .subject-btn:hover { background: var(--paper); color: var(--accent); }
+
+  .subject-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .subject-content { display: none; }
+  .subject-content.active { display: block; }
+
+  .idea-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .idea-item {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .idea-item:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(201,168,76,0.1); }
+
+  .idea-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .idea-item p {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ── GEMINI SECTION ── */
+  .gemini-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .gemini-card {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .gemini-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12), transparent);
+    transform: translate(30%, 30%);
+  }
+
+  .gemini-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+
+  .gemini-card .icon { font-size: 2.2rem; margin-bottom: 1rem; }
+
+  .gemini-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .gemini-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .gemini-card ul li {
+    font-size: 0.85rem;
+    color: var(--slate);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .gemini-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* ── STEP FLOW ── */
+  .step-flow {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .step {
+    flex: 1;
+    min-width: 180px;
+    padding: 1.5rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .step:first-child { border-radius: 12px 0 0 12px; }
+  .step:last-child { border-radius: 0 12px 12px 0; }
+
+  .step:hover { background: var(--cream); z-index: 1; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .step h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--accent);
+  }
+
+  .step p {
+    font-size: 0.82rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* ── ARROW CONNECTOR ── */
+  .step + .step::before {
+    content: '→';
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--paper);
+    color: var(--gold);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    font-size: 0.9rem;
+    z-index: 2;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--accent) 0%, #0a2540 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .highlight-box::before {
+    content: '✦';
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    font-size: 4rem;
+    color: rgba(201,168,76,0.15);
+  }
+
+  .highlight-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--gold-light);
+  }
+
+  .highlight-box p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  footer strong {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .subject-grid { grid-template-columns: 1fr; }
+    .subject-nav { flex-direction: row; flex-wrap: wrap; position: static; }
+    .step { border-radius: 10px !important; margin-bottom: 0.5rem; }
+    .step + .step::before { display: none; }
+    .step-flow { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ── TOOLTIP ── */
+  [title] { cursor: help; }
+
+  /* ── PROMPT CATEGORY BADGE ── */
+  .prompt-category {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .cat-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    background: var(--cream);
+    color: var(--slate);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .cat-tag:hover, .cat-tag.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* scroll indicator */
+  .scroll-indicator {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--slate);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  .prompt-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .prompt-group { margin-bottom: 2.5rem; }
+
+  .prompt-group-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">IA <span>·</span> Docencia</div>
+  <ul class="nav-links">
+    <li><a href="#guia">Guía Prompts</a></li>
+    <li><a href="#mejorar">Mejorar Prompts</a></li>
+    <li><a href="#gemini">Gemini Pro</a></li>
+    <li><a href="#asignaturas">Por Asignatura</a></li>
+    <li><a href="#prompts">Prompts Listos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-badge">Guía para docentes de Secundaria y Bachillerato</div>
+    <h1>La <em>Inteligencia Artificial</em><br>en tu aula</h1>
+    <p>Una guía práctica y completa para integrar la IA en tu docencia: desde los primeros prompts hasta recursos listos para usar en clase.</p>
+    <div class="hero-cta">
+      <a href="#guia" class="btn btn-primary">▶ Empezar ahora</a>
+      <a href="#prompts" class="btn btn-secondary">📋 Ver prompts listos</a>
+    </div>
+    <div class="scroll-indicator">
+      <span>Explora</span>
+      <span style="font-size:1.2rem">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- 1. GUÍA RÁPIDA DE PROMPTS -->
+<section id="guia">
+  <div class="section-inner">
+    <div class="section-label">01 · Fundamentos</div>
+    <h2 class="section-title">Guía rápida para crear prompts</h2>
+    <p class="section-desc">Un prompt eficaz tiene estructura. Cuanto más contexto y claridad aportes, mejores resultados obtendrás de la IA.</p>
+
+    <div class="prompt-elements">
+      <div class="element-pill">
+        <span class="tag">ROL</span>
+        <strong>Asigna un papel</strong>
+        <p>Dile a la IA quién debe ser. "Eres un experto en…", "Actúa como un profesor de…"</p>
+      </div>
+      <div class="element-pill">
+        <span class="tag">TAREA</span>
+        <strong>Define la acción</strong>
+        <p>¿Qué debe hacer exactamente? Usa verbos concretos: crea, resume, explica, compara, diseña…</p>
+      </div>
+      <div class="element-pill">
+        <span class="tag">CONTEXTO</span>
+        <strong>Da información clave</strong>
+        <p>Curso, asignatura, nivel de los alumnos, currículo, restricciones específicas.</p>
+      </div>
+      <div class="element-pill">
+        <span class="tag">FORMATO</span>
+        <strong>Indica la forma</strong>
+        <p>"En formato tabla", "con 5 puntos", "en menos de 200 palabras", "en lenguaje sencillo para adolescentes".</p>
+      </div>
+      <div class="element-pill">
+        <span class="tag">EJEMPLOS</span>
+        <strong>Muestra lo que quieres</strong>
+        <p>Si tienes un ejemplo del resultado esperado, inclúyelo. La IA aprende de tus muestras.</p>
+      </div>
+      <div class="element-pill">
+        <span class="tag">RESTRICCIONES</span>
+        <strong>Di lo que NO quieres</strong>
+        <p>"Sin preguntas de tipo test", "evita el lenguaje técnico", "no más de una página".</p>
+      </div>
+    </div>
+
+    <div class="step-flow" style="margin-top: 3rem;">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Escribe en lenguaje natural</h4>
+        <p>No necesitas jerga técnica. Habla como le hablarías a un colega muy competente.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Añade contexto educativo</h4>
+        <p>Curso, materia, legislación (LOMLOE), tipo de alumnado, duración de la actividad.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Especifica el formato de salida</h4>
+        <p>Tabla, lista, rúbrica, esquema, redacción, preguntas y respuestas…</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Itera y refina</h4>
+        <p>Si el resultado no es ideal, pide ajustes: "hazlo más breve", "añade un ejemplo práctico".</p>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <h4>Revisa antes de usar</h4>
+        <p>La IA puede cometer errores. Siempre valida el contenido antes de usarlo con alumnos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. MEJORAR PROMPTS CON IA -->
+<section id="mejorar">
+  <div class="section-inner">
+    <div class="section-label">02 · Técnica Avanzada</div>
+    <h2 class="section-title">Trabaja rápido: que la IA mejore tu prompt</h2>
+    <p class="section-desc">El truco más poderoso: en lugar de pulir el prompt tú solo, pídele a la IA que lo optimice. Así funciona:</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">💡</span>
+        <h3>Técnica del "meta-prompt"</h3>
+        <p>Describe tu intención en lenguaje natural y pídele a la IA que convierta esa idea en un prompt profesional y detallado.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔄</span>
+        <h3>Pide variantes</h3>
+        <p>Una vez tengas un resultado, solicita 3 versiones alternativas del prompt para comparar enfoques diferentes.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Asigna el rol de experto</h3>
+        <p>Comienza siempre con "Eres un experto en ingeniería de prompts educativos…" para elevar la calidad de su optimización.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block" style="margin-top: 2rem;">
+      <div class="prompt-block-header">
+        <span class="prompt-block-title">📌 Prompt para que la IA mejore tu prompt</span>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+      </div>
+      <pre class="prompt-text"><span class="keyword">Eres un experto en ingeniería de prompts especializado en educación secundaria y bachillerato.</span>
+
+Quiero que mejores el siguiente prompt que he redactado en lenguaje natural. Necesito que lo conviertas en un prompt detallado, estructurado y eficaz para obtener el mejor resultado posible de una IA.
+
+Mi prompt en bruto:
+<span class="var">[ESCRIBE AQUÍ TU IDEA EN LENGUAJE NATURAL]</span>
+
+Por favor:
+1. Reescríbelo como prompt profesional listo para usar.
+2. Explica brevemente qué has cambiado y por qué.
+3. Propón 2 variantes alternativas del mismo prompt con enfoques distintos.</pre>
+    </div>
+
+    <div class="highlight-box">
+      <h3>💡 Consejo de oro</h3>
+      <p>Guarda tus mejores prompts en un documento compartido con el departamento. En pocas semanas tendréis un banco de recursos invaluable adaptado exactamente a vuestro contexto educativo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. GEMINI PRO ANDALUCÍA -->
+<section id="gemini">
+  <div class="section-inner">
+    <div class="section-label">03 · Recurso Oficial</div>
+    <h2 class="section-title">Gemini Pro de la Junta de Andalucía</h2>
+    <p class="section-desc">La Junta de Andalucía proporciona acceso gratuito a Gemini Pro para docentes a través de la plataforma educativa. Conoce sus posibilidades.</p>
+
+    <div class="gemini-features">
+      <div class="gemini-card">
+        <div class="icon">📝</div>
+        <h4>Creación de contenido</h4>
+        <ul>
+          <li>Situaciones de Aprendizaje LOMLOE</li>
+          <li>Unidades didácticas completas</li>
+          <li>Actividades diferenciadas por nivel</li>
+          <li>Rúbricas de evaluación</li>
+          <li>Exámenes y cuestionarios</li>
+        </ul>
+      </div>
+      <div class="gemini-card">
+        <div class="icon">🔍</div>
+        <h4>Investigación y recursos</h4>
+        <ul>
+          <li>Búsqueda de bibliografía actualizada</li>
+          <li>Resumen de artículos científicos</li>
+          <li>Comparativa de enfoques pedagógicos</li>
+          <li>Recursos didácticos por tema</li>
+          <li>Fuentes verificadas y citadas</li>
+        </ul>
+      </div>
+      <div class="gemini-card">
+        <div class="icon">👥</div>
+        <h4>Atención a la diversidad</h4>
+        <ul>
+          <li>Adaptación curricular (ACI)</li>
+          <li>Actividades multinivel</li>
+          <li>Textos simplificados (lectura fácil)</li>
+          <li>Materiales para NEE</li>
+          <li>Propuestas de ampliación</li>
+        </ul>
+      </div>
+      <div class="gemini-card">
+        <div class="icon">💬</div>
+        <h4>Comunicación y gestión</h4>
+        <ul>
+          <li>Comunicaciones a familias</li>
+          <li>Informes de evaluación</li>
+          <li>Actas de reunión</li>
+          <li>Corrección con feedback</li>
+          <li>Traducciones básicas</li>
+        </ul>
+      </div>
+      <div class="gemini-card">
+        <div class="icon">🎭</div>
+        <h4>Metodologías activas</h4>
+        <ul>
+          <li>Diseño de proyectos ABP</li>
+          <li>Escenarios de gamificación</li>
+          <li>Debates y dilemas éticos</li>
+          <li>Roleplay educativo</li>
+          <li>Escape rooms temáticos</li>
+        </ul>
+      </div>
+      <div class="gemini-card">
+        <div class="icon">📊</div>
+        <h4>Análisis y evaluación</h4>
+        <ul>
+          <li>Análisis de resultados de grupo</li>
+          <li>Propuestas de mejora</li>
+          <li>Indicadores de evaluación</li>
+          <li>Portfolio digital</li>
+          <li>Autoevaluación del alumno</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 2rem;">
+      <h3>⚠️ Importante sobre privacidad</h3>
+      <p>Nunca introduzcas datos personales de alumnos (nombre, apellidos, DNI, datos de salud) en ninguna IA, incluido Gemini. Usa siempre pseudónimos o referencias genéricas ("alumno A", "estudiante con dificultades lectoras"). La versión educativa de la Junta garantiza mayor privacidad, pero la precaución siempre es necesaria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. IDEAS POR ASIGNATURA -->
+<section id="asignaturas">
+  <div class="section-inner">
+    <div class="section-label">04 · Por Materias</div>
+    <h2 class="section-title">Ideas para cada asignatura</h2>
+    <p class="section-desc">Selecciona tu materia y descubre aplicaciones concretas de la IA en tu clase.</p>
+
+    <div class="subject-grid">
+      <div class="subject-nav">
+        <button class="subject-btn active" onclick="showSubject('historia')">🏛️ Historia</button>
+        <button class="subject-btn" onclick="showSubject('lengua')">📖 Lengua y Lit.</button>
+        <button class="subject-btn" onclick="showSubject('ingles')">🌍 Inglés</button>
+        <button class="subject-btn" onclick="showSubject('mates')">📐 Matemáticas</button>
+        <button class="subject-btn" onclick="showSubject('fyq')">⚗️ Física y Química</button>
+        <button class="subject-btn" onclick="showSubject('bio')">🌿 Biología</button>
+        <button class="subject-btn" onclick="showSubject('orientacion')">🧭 Orientación</button>
+        <button class="subject-btn" onclick="showSubject('ef')">⚽ Ed. Física</button>
+        <button class="subject-btn" onclick="showSubject('arte')">🎨 Plástica / Arte</button>
+        <button class="subject-btn" onclick="showSubject('filosofia')">💭 Filosofía</button>
+      </div>
+
+      <div>
+        <div class="subject-content active" id="s-historia">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar fuentes primarias ficticias (diarios, cartas, discursos) de personajes históricos para análisis crítico.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear debates históricos con posturas opuestas: "¿Fue inevitable la Primera Guerra Mundial?"</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Diseñar líneas de tiempo interactivas con eventos clave y sus conexiones causales.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Proponer preguntas tipo EBAU con diferentes niveles de dificultad sobre un tema concreto.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Elaborar comparativas entre civilizaciones o períodos históricos en formato tabla.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Crear noticias de época: "¿Cómo habría cubierto el New York Times la caída del Imperio Romano?"</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Adaptar textos históricos complejos a un lenguaje accesible para 1º ESO.</p></div>
+            <div class="idea-item"><span class="idea-num">08</span><p>Diseñar un roleplay: el alumno es consejero de un gobernante y debe tomar decisiones históricas.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-lengua">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar fragmentos literarios al estilo de un autor para que los alumnos identifiquen recursos estilísticos.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear textos con errores morfosintácticos controlados para ejercicios de corrección.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Proponer guías de lectura con preguntas de comprensión y análisis para cualquier obra.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Generar ejercicios de tipología textual: argumentativo, expositivo, narrativo, descriptivo.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear comienzos de relato creativos para estimular la escritura de los alumnos.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Diseñar debates orales sobre temas de actualidad con argumentos a favor y en contra.</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Analizar obras del canon literario español: estructura, personajes, contexto histórico.</p></div>
+            <div class="idea-item"><span class="idea-num">08</span><p>Crear ejercicios de transformación textual: cambiar narrador, tiempo verbal, registro...</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-ingles">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Crear diálogos situacionales por nivel (A2, B1, B2) para práctica de speaking.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Generar ejercicios de gramática en contexto (uso de tiempos verbales, condicionales, pasivas).</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Adaptar textos reales a diferentes niveles del MCER manteniendo el contenido.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Diseñar debates en inglés sobre temas globales actuales con vocabulario específico.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear actividades CLIL que integren inglés con otras asignaturas (History in English, Science in English).</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Generar errores comunes de hispanohablantes para ejercicios de corrección y consciencia lingüística.</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Proponer canciones, podcasts y recursos multimedia con actividades de comprensión auditiva.</p></div>
+            <div class="idea-item"><span class="idea-num">08</span><p>Crear writing tasks con rúbricas de corrección para Cambridge/EOI adaptadas al nivel.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-mates">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar colecciones de problemas por nivel de dificultad (básico, intermedio, avanzado) sobre cualquier tema.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear problemas contextualizados en situaciones reales (economía, arquitectura, deportes).</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Diseñar actividades de matemáticas financieras aplicadas al día a día del alumno.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Generar demostraciones paso a paso de conceptos abstractos con ejemplos progresivos.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear errores tipo en resolución de ecuaciones para que los alumnos los detecten y corrijan.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Diseñar investigaciones estadísticas con datos ficticios pero realistas para practicar estadística.</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Proponer proyectos ABP matemáticos: diseño de una ciudad, optimización de recursos, etc.</p></div>
+            <div class="idea-item"><span class="idea-num">08</span><p>Explicar la historia de los conceptos matemáticos: quién los descubrió, para qué y cuándo.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-fyq">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Diseñar prácticas de laboratorio virtuales con protocolo, materiales y preguntas de análisis.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear problemas de física con datos reales (velocidad de cohetes reales, energía de centrales).</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Generar infografías textuales sobre la tabla periódica, reacciones químicas o leyes físicas.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Diseñar noticias científicas ficticias plausibles para que los alumnos las validen o refuten.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear debates éticos sobre ciencia: energía nuclear, transgénicos, inteligencia artificial...</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Generar explicaciones multinivel del mismo concepto: para 8 años, para 14 años, para universitario.</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Proponer conexiones entre Física/Química y el mundo profesional: ramas de ingeniería, medicina...</p></div>
+            <div class="idea-item"><span class="idea-num">08</span><p>Crear situaciones de aprendizaje con el método científico como hilo conductor.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-bio">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar casos clínicos ficticios para que los alumnos diagnostiquen enfermedades aplicando anatomía y fisiología.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear debates sobre bioética: trasplantes, edición genética, eutanasia, uso de animales en laboratorio.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Diseñar proyectos de biología ambiental conectados al entorno local andaluz.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Proponer itinerarios de estudio de la biodiversidad con recursos online verificados.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear clasificaciones taxonómicas con ejemplos locales (fauna y flora de Andalucía).</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Generar preguntas de reflexión sobre nutrición, salud y hábitos de vida para tutoría o biología.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-orientacion">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Crear fichas de autoconocimiento y reflexión vocacional para alumnos de 4º ESO y Bachillerato.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Diseñar actividades de inteligencia emocional y gestión del estrés para épocas de exámenes.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Generar recursos para trabajar habilidades sociales y resolución de conflictos.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Crear guías de técnicas de estudio personalizadas según el estilo de aprendizaje.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Diseñar programas de tutoría individual con protocolos de intervención ante diferentes situaciones.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Elaborar informes psicopedagógicos tipo para orientar a familias (siempre sin datos reales).</p></div>
+            <div class="idea-item"><span class="idea-num">07</span><p>Crear actividades de orientación académica y profesional por itinerarios formativos.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-ef">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Diseñar sesiones de calentamiento y vuelta a la calma con justificación fisiológica incluida.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear juegos modificados para trabajar objetivos específicos con materiales limitados.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Generar rutinas de entrenamiento adaptadas a diferentes niveles de condición física.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Diseñar unidades didácticas de deportes alternativos o actividades en la naturaleza.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear rúbricas de evaluación de la expresión corporal y actividades rítmicas.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Proponer conexiones entre EF y salud: tabaquismo, alimentación, sedentarismo...</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-arte">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar análisis de obras de arte con estructura guiada (forma, técnica, contenido, contexto histórico).</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear proyectos creativos que conecten arte contemporáneo con problemas sociales actuales.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Diseñar visitas virtuales a museos con actividades antes, durante y después.</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Proponer conexiones entre movimientos artísticos y su contexto histórico y filosófico.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear fichas biográficas de artistas con preguntas de reflexión sobre su obra y su época.</p></div>
+          </div>
+        </div>
+
+        <div class="subject-content" id="s-filosofia">
+          <div class="idea-list">
+            <div class="idea-item"><span class="idea-num">01</span><p>Generar dilemas éticos contemporáneos con argumentos filosóficos clásicos aplicados.</p></div>
+            <div class="idea-item"><span class="idea-num">02</span><p>Crear textos filosóficos ficticios "al estilo de" Platón, Kant, Nietzsche para análisis.</p></div>
+            <div class="idea-item"><span class="idea-num">03</span><p>Diseñar debates socráticos sobre temas actuales: IA, redes sociales, justicia social...</p></div>
+            <div class="idea-item"><span class="idea-num">04</span><p>Proponer conexiones entre filosofía y ciencias: ética de la IA, filosofía de la mente, bioética.</p></div>
+            <div class="idea-item"><span class="idea-num">05</span><p>Crear mapas conceptuales de los principales sistemas filosóficos y sus relaciones.</p></div>
+            <div class="idea-item"><span class="idea-num">06</span><p>Generar preguntas de tipo EBAU con orientaciones de respuesta para diferentes temas filosóficos.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PROMPTS LISTOS PARA USAR -->
+<section id="prompts">
+  <div class="section-inner">
+    <div class="section-label">05 · Banco de Prompts</div>
+    <h2 class="section-title">Prompts listos para copiar y usar</h2>
+    <p class="section-desc">Copia cualquier prompt, personaliza las variables entre corchetes y obtén resultados inmediatos.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('sa')">📋 Situación de Aprendizaje</button>
+      <button class="tab-btn" onclick="showTab('actividades')">🎯 Actividades</button>
+      <button class="tab-btn" onclick="showTab('evaluacion')">📊 Evaluación</button>
+      <button class="tab-btn" onclick="showTab('biblio')">📚 Bibliografía</button>
+      <button class="tab-btn" onclick="showTab('lectura')">📖 Lecturas</button>
+      <button class="tab-btn" onclick="showTab('varios')">✨ Varios</button>
+    </div>
+
+    <!-- TAB: SITUACIÓN DE APRENDIZAJE -->
+    <div class="tab-content active" id="tab-sa">
+      <div class="prompt-group">
+        <div class="prompt-group-title">📋 Situación de Aprendizaje LOMLOE completa</div>
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">SA · Completa con todas las variables</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un experto en diseño curricular basado en la LOMLOE y en competencias clave.</span>
+
+Diseña una Situación de Aprendizaje completa y detallada con los siguientes parámetros:
+
+- <span class="var">[CONTEXTO]</span>: Breve descripción del centro, entorno social, características del grupo.
+- <span class="var">[CURSO]</span>: Indica el curso (ej: 3º ESO, 1º Bachillerato).
+- <span class="var">[ASIGNATURA]</span>: Nombre de la materia.
+- <span class="var">[CRITERIOS DE EVALUACIÓN]</span>: Pega aquí los criterios del currículo oficial de Andalucía.
+- <span class="var">[SABERES BÁSICOS]</span>: Indica los saberes básicos relacionados del currículo.
+- <span class="var">[DURACIÓN]</span>: Número de sesiones previstas.
+- <span class="var">[CONTENIDO]</span>: Tema o contenido concreto que se va a trabajar.
+
+La SA debe incluir:
+1. Título evocador y motivador.
+2. Descripción narrativa del reto o situación problema.
+3. Justificación curricular (competencias clave, perfil de salida).
+4. Actividades secuenciadas (inicio, desarrollo, cierre).
+5. Instrumentos y criterios de evaluación.
+6. Atención a la diversidad (adaptaciones y ampliaciones).
+7. Recursos y materiales necesarios.
+8. Productos finales de aprendizaje.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">SA · Versión rápida (15 minutos de trabajo)</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Actúa como docente experto en LOMLOE y diseño curricular por competencias.</span>
+
+Crea una Situación de Aprendizaje breve y práctica para <span class="var">[ASIGNATURA]</span>, curso <span class="var">[CURSO]</span>, sobre el tema <span class="var">[TEMA]</span>.
+Duración: <span class="var">[N]</span> sesiones.
+
+Incluye: título, descripción del reto, 3-5 actividades principales con sus objetivos, producto final y forma de evaluarlo.
+Formato: esquemático y fácil de implementar directamente en clase.</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: ACTIVIDADES -->
+    <div class="tab-content" id="tab-actividades">
+      <div class="prompt-group">
+        <div class="prompt-group-title">🎯 Exámenes y pruebas escritas</div>
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Examen completo por bloques</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un profesor experto en evaluación educativa.</span>
+
+Diseña un examen para <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span>, sobre los siguientes contenidos: <span class="var">[TEMAS]</span>.
+
+Incluye exactamente:
+- Bloque 1: 5 preguntas de tipo test (4 opciones, 1 correcta). Indica la respuesta correcta al final.
+- Bloque 2: 3 preguntas de desarrollo corto (5-8 líneas cada una).
+- Bloque 3: 1 pregunta de análisis o resolución de problema/caso práctico.
+- Criterios de corrección y puntuación de cada bloque.
+- Duración estimada: <span class="var">[MINUTOS]</span> minutos.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Actividades multinivel (3 niveles)</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un especialista en atención a la diversidad y diseño universal de aprendizaje (DUA).</span>
+
+Crea 3 versiones de la misma actividad sobre <span class="var">[TEMA]</span> para <span class="var">[ASIGNATURA]</span> en <span class="var">[CURSO]</span>:
+
+🔵 NIVEL BÁSICO: Para alumnos con dificultades. Apoyos visuales, vocabulario sencillo, pasos guiados.
+🟡 NIVEL ESTÁNDAR: Para el grupo general. Autonomía media, algunos apoyos.
+🔴 NIVEL AVANZADO: Para alumnos con altas capacidades. Mayor complejidad, creatividad, pensamiento crítico.
+
+Cada versión debe trabajar el mismo aprendizaje esencial con diferente grado de profundidad.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Actividad desde múltiples perspectivas</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Diseña una actividad sobre <span class="var">[TEMA]</span> que permita trabajarlo desde estas perspectivas diferentes:
+
+1. Perspectiva histórica: ¿Cómo surgió o evolucionó este concepto?
+2. Perspectiva científica: ¿Qué dice la ciencia actual al respecto?
+3. Perspectiva ética o social: ¿Qué implicaciones tiene para la sociedad?
+4. Perspectiva cotidiana: ¿Cómo afecta a la vida diaria del alumno?
+
+Para cada perspectiva, incluye una pregunta generadora y una tarea o producto asociado.
+Asignatura: <span class="var">[ASIGNATURA]</span>. Curso: <span class="var">[CURSO]</span>.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Actividad práctica de clase (formato ficha)</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Actúa como un docente con experiencia en diseño de materiales didácticos.</span>
+
+Crea una ficha de actividad práctica para <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span> sobre <span class="var">[TEMA]</span>.
+
+La ficha debe tener:
+- Nombre de la actividad y objetivo de aprendizaje.
+- Tiempo estimado: <span class="var">[MINUTOS]</span> min.
+- Materiales necesarios.
+- Instrucciones paso a paso para el alumno (máximo 6 pasos, lenguaje claro).
+- Preguntas de reflexión al final (2-3 preguntas abiertas).
+- Una extensión opcional para quien acabe antes.</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: EVALUACIÓN -->
+    <div class="tab-content" id="tab-evaluacion">
+      <div class="prompt-group">
+        <div class="prompt-group-title">📊 Rúbricas y criterios de evaluación</div>
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Rúbrica holística (4 niveles)</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un experto en evaluación por competencias y diseño de rúbricas.</span>
+
+Crea una rúbrica holística de evaluación para <span class="var">[TAREA O PRODUCTO]</span> en <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span>.
+
+La rúbrica debe tener:
+- 4 niveles de desempeño: Insuficiente / Suficiente / Notable / Excelente.
+- Entre 4 y 6 criterios de evaluación relevantes para la tarea.
+- Descripción clara de cada nivel para cada criterio.
+- Puntuación sugerida (sobre 10).
+- Formato de tabla clara y fácil de aplicar.
+
+Criterios que quiero incluir obligatoriamente: <span class="var">[CRITERIOS ESPECÍFICOS, O "los que consideres más apropiados"]</span>.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Cuestionario de autoevaluación para el alumno</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Crea un cuestionario de autoevaluación para alumnos de <span class="var">[CURSO]</span> tras completar <span class="var">[ACTIVIDAD O UNIDAD]</span>.
+
+Incluye:
+- 5 afirmaciones para valorar con escala del 1 al 4 (1 = nada, 4 = totalmente).
+- 3 preguntas abiertas de reflexión (¿Qué aprendí?, ¿Qué se me resistió?, ¿Qué haría diferente?).
+- 1 sección de co-evaluación: ¿Cómo valorarías el trabajo de tu grupo?
+Lenguaje adaptado a la edad: <span class="var">[CURSO]</span>.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Feedback personalizado para un trabajo</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Actúa como docente que da retroalimentación constructiva y motivadora.</span>
+
+He recibido el siguiente trabajo de un alumno de <span class="var">[CURSO]</span> en <span class="var">[ASIGNATURA]</span>:
+<span class="var">[PEGA AQUÍ EL TRABAJO O DESCRIPCIÓN DEL MISMO]</span>
+
+El trabajo debía cumplir estos objetivos: <span class="var">[OBJETIVOS]</span>
+
+Redacta un feedback que:
+1. Reconozca 2-3 aspectos positivos concretos.
+2. Señale 2-3 áreas de mejora de forma constructiva (sin ser negativo).
+3. Proponga acciones específicas para mejorar.
+4. Sea motivador y fomente la autoestima académica.
+Tono: cercano pero profesional. Longitud: máximo una página.</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: BIBLIOGRAFÍA -->
+    <div class="tab-content" id="tab-biblio">
+      <div class="prompt-group">
+        <div class="prompt-group-title">📚 Búsqueda de fuentes y recursos</div>
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Fuentes bibliográficas para docentes</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Actúa como un bibliotecario especializado en educación secundaria y bachillerato.</span>
+
+Necesito recursos bibliográficos y didácticos sobre <span class="var">[TEMA]</span> para preparar clases de <span class="var">[ASIGNATURA]</span> en <span class="var">[CURSO]</span>.
+
+Por favor, proporciona:
+1. 3-5 libros de texto o monografías de referencia (con autor, título, editorial, año aproximado).
+2. 2-3 artículos científicos o académicos relevantes (con revista y palabras clave para buscarlos).
+3. 3 recursos digitales fiables (páginas web, plataformas, repositorios).
+4. 1-2 documentales o vídeos formativos recomendados.
+5. Revistas especializadas donde seguir actualizándome en este tema.
+
+Indica si cada recurso es más útil para el docente o si también puede usarse directamente con alumnos.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Recursos para el alumno por tema</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Genera una lista de recursos de estudio autónomo para alumnos de <span class="var">[CURSO]</span> sobre <span class="var">[TEMA]</span>:
+
+- 3 vídeos de YouTube educativos y fiables (indica el canal o tipo de contenido).
+- 2 páginas web o aplicaciones para practicar o profundizar.
+- 1 pódcast o recurso de audio educativo relacionado.
+- 1 libro divulgativo accesible para adolescentes.
+- 3 palabras clave o hashtags para buscar más contenido por su cuenta.
+
+El nivel de dificultad debe ser adecuado para <span class="var">[CURSO]</span> y el objetivo es que el alumno pueda estudiar y ampliar de forma autónoma.</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: LECTURAS -->
+    <div class="tab-content" id="tab-lectura">
+      <div class="prompt-group">
+        <div class="prompt-group-title">📖 Textos y lecturas adaptadas</div>
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Texto adaptado con niveles de comprensión</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un especialista en comprensión lectora y didáctica de la lectura.</span>
+
+Escribe un texto divulgativo de aproximadamente <span class="var">[EXTENSIÓN: 200/400/600]</span> palabras sobre <span class="var">[TEMA]</span>, adaptado a alumnos de <span class="var">[CURSO]</span>.
+
+A continuación, crea:
+- 3 preguntas de comprensión literal (la respuesta está en el texto).
+- 2 preguntas de comprensión inferencial (hay que deducir o interpretar).
+- 1 pregunta de valoración crítica (opinión argumentada del alumno).
+- Un breve glosario de 5 términos clave del texto con su definición sencilla.
+
+Nivel de lectura: adecuado para <span class="var">[CURSO]</span>. Evita tecnicismos innecesarios.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Texto en lectura fácil (apoyo a la diversidad)</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Adapta el siguiente texto al formato de Lectura Fácil (nivel A2-B1) para alumnos con dificultades lectoras o NEE:
+
+<span class="var">[PEGA AQUÍ EL TEXTO ORIGINAL]</span>
+
+Criterios de adaptación:
+- Frases cortas (máximo 15-20 palabras).
+- Vocabulario sencillo y cotidiano.
+- Una idea por párrafo.
+- Sin metáforas ni giros complejos.
+- Añade un ícono o símbolo representativo al inicio de cada párrafo si es posible.
+- Mantén el contenido esencial del original.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Guía de lectura para una obra literaria</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Crea una guía de lectura completa para la obra <span class="var">[TÍTULO]</span> de <span class="var">[AUTOR]</span>, para alumnos de <span class="var">[CURSO]</span>.
+
+La guía debe incluir:
+1. Ficha técnica de la obra (autor, año, género, contexto histórico).
+2. Resumen argumental por capítulos o partes principales.
+3. Personajes principales con su caracterización y función narrativa.
+4. Temas centrales y secundarios de la obra.
+5. Recursos literarios más destacados con ejemplos del texto.
+6. 10 preguntas de reflexión y análisis para trabajar en clase.
+7. Propuesta de actividad creativa o proyecto final vinculado a la obra.</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: VARIOS -->
+    <div class="tab-content" id="tab-varios">
+      <div class="prompt-group">
+        <div class="prompt-group-title">✨ Prompts de uso general</div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Listado de ideas por categoría</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Genera una lista exhaustiva de <span class="var">[CANTIDAD]</span> ideas sobre <span class="var">[TEMA]</span> organizadas en las siguientes categorías:
+
+<span class="var">[CATEGORÍA 1]</span>
+<span class="var">[CATEGORÍA 2]</span>
+<span class="var">[CATEGORÍA 3]</span>
+
+Para cada idea incluye: una descripción breve (1-2 frases), nivel de dificultad (básico/medio/avanzado) y tiempo estimado de implementación.
+Contexto: docente de <span class="var">[ASIGNATURA]</span> en <span class="var">[CURSO]</span>.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Comunicación a familias</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Actúa como tutor/a de un grupo de <span class="var">[CURSO]</span>.</span>
+
+Redacta una comunicación para las familias sobre <span class="var">[MOTIVO: reunión / actividad / situación / evaluación]</span>.
+
+Tono: cercano, profesional y positivo. Extensión: máximo 200 palabras.
+Incluye: saludo, información principal, qué se pide a la familia (si procede) y despedida cordial.
+Evita el lenguaje excesivamente técnico o burocrático.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Escape Room educativo</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un diseñador de experiencias educativas gamificadas.</span>
+
+Diseña un Escape Room educativo para <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span>, sobre el tema <span class="var">[TEMA]</span>.
+Duración: <span class="var">[MINUTOS]</span> minutos. Grupos de <span class="var">[ALUMNOS POR GRUPO]</span> alumnos.
+
+Incluye:
+1. Narrativa/historia envolvente que justifique el reto.
+2. 4-5 pruebas o enigmas con contenido curricular (con soluciones).
+3. Mecánica de progresión entre pruebas.
+4. Materiales necesarios (preferiblemente de bajo coste o digitales).
+5. Criterios de evaluación integrados en la actividad.
+6. Variantes para distintos niveles de dificultad.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Proyecto ABP completo</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text"><span class="keyword">Eres un experto en Aprendizaje Basado en Proyectos (ABP) y metodologías activas.</span>
+
+Diseña un proyecto ABP para <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span>, con una duración de <span class="var">[SEMANAS]</span> semanas.
+Tema o problema central: <span class="var">[TEMA O PREGUNTA GUÍA]</span>
+
+El proyecto debe incluir:
+1. Pregunta guía o desafío central motivador.
+2. Fases del proyecto con actividades y tiempos.
+3. Roles dentro del equipo de trabajo.
+4. Producto final (qué crean los alumnos).
+5. Audiencia real o simulada para la presentación.
+6. Vinculación con competencias clave y criterios de evaluación.
+7. Rúbrica de evaluación del proceso y del producto.
+8. Posibles dificultades y cómo gestionarlas.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Sesión de debate estructurado</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Diseña una sesión de debate estructurado para <span class="var">[ASIGNATURA]</span>, <span class="var">[CURSO]</span>, sobre la siguiente cuestión:
+<span class="var">[PREGUNTA O TEMA DEL DEBATE]</span>
+
+Incluye:
+1. Argumentos sólidos a favor (mínimo 5, con datos o ejemplos).
+2. Argumentos en contra (mínimo 5, con datos o ejemplos).
+3. Roles posibles: moderador, equipos, observadores con rol de evaluadores.
+4. Normas del debate (turno de palabra, respeto, fuentes...).
+5. Rúbrica para evaluar la participación en el debate.
+6. Preguntas de cierre y reflexión final para toda la clase.</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-block-header">
+            <span class="prompt-block-title">Explicación multinivel de un concepto</span>
+            <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar</button>
+          </div>
+          <pre class="prompt-text">Explica el concepto de <span class="var">[CONCEPTO]</span> de tres formas distintas, adaptadas a cada perfil:
+
+1. Para un niño de 10 años: lenguaje muy sencillo, metáforas cotidianas, sin términos técnicos.
+2. Para un alumno de ESO (12-16 años): explicación clara con algo de terminología, ejemplos actuales y cercanos.
+3. Para un adulto o universitario: explicación técnica y precisa, relaciones con otros conceptos, implicaciones.
+
+Esta técnica de las tres versiones me ayudará a entender el concepto en profundidad y encontrar la mejor forma de explicárselo a mis alumnos.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>IA · Docencia</strong>
+  <p>Guía de Inteligencia Artificial para docentes de Secundaria y Bachillerato</p>
+  <p style="margin-top:0.5rem; opacity:0.4; font-size:0.75rem;">Recuerda: la IA es una herramienta de apoyo. El juicio docente y la revisión crítica siempre son necesarios.</p>
+</footer>
+
+<script>
+  // ── TAB SYSTEM ──
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── SUBJECT SYSTEM ──
+  function showSubject(id) {
+    document.querySelectorAll('.subject-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.subject-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('s-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── COPY BUTTON ──
+  function copyPrompt(btn) {
+    const block = btn.closest('.prompt-block');
+    const pre = block.querySelector('.prompt-text');
+    const text = pre.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copiado';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '📋 Copiar';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // ── SCROLL ANIMATION ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card, .prompt-block, .idea-item, .gemini-card, .step, .element-pill').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // ── ACTIVE NAV ──
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.fontWeight = a.getAttribute('href') === '#' + current ? '600' : '500';
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
