@@ -1,0 +1,21 @@
+{
+  "subject": "Matemáticas I",
+  "course": "1.º Bachillerato",
+  "group": "A",
+  "year": "2024-2025",
+  "teacher": "Tu Nombre",
+  "data_base_url": ".",
+
+  "blocks": [
+    { "id": "algebra",     "title": "Álgebra y análisis",          "icon": "∫" },
+    { "id": "geometria",   "title": "Geometría",                   "icon": "△" },
+    { "id": "estadistica", "title": "Estadística y probabilidad",  "icon": "◻" }
+  ],
+
+  "saberes_basicos": [
+    { "id": "SB1", "desc": "Sentido numérico y algebraico" },
+    { "id": "SB2", "desc": "Sentido espacial y geométrico" },
+    { "id": "SB3", "desc": "Sentido estocástico" },
+    { "id": "SB4", "desc": "Sentido funcional y analítico" }
+  ]
+}
