@@ -1,0 +1,74 @@
+[
+  {
+    "id": "funciones",
+    "title": "Funciones y sus características",
+    "block": "Álgebra y análisis",
+    "icon": "ƒ",
+    "description": "Concepto de función, dominio, recorrido, monotonía, continuidad y representación gráfica.",
+    "keywords": ["función", "dominio", "recorrido", "monotonía", "continuidad"],
+    "saberes_basicos": ["SB4"]
+  },
+  {
+    "id": "limites",
+    "title": "Límites y continuidad",
+    "block": "Álgebra y análisis",
+    "icon": "→",
+    "description": "Límites de funciones, indeterminaciones, asíntotas y tipos de discontinuidades.",
+    "keywords": ["límite", "indeterminación", "asíntota", "continuidad"],
+    "saberes_basicos": ["SB4"]
+  },
+  {
+    "id": "derivadas",
+    "title": "Derivadas",
+    "block": "Álgebra y análisis",
+    "icon": "∂",
+    "description": "Concepto de derivada, reglas de derivación, derivada de la función compuesta y aplicaciones.",
+    "keywords": ["derivada", "regla de la cadena", "recta tangente", "diferenciabilidad"],
+    "saberes_basicos": ["SB4"]
+  },
+  {
+    "id": "aplicaciones_derivada",
+    "title": "Aplicaciones de la derivada",
+    "block": "Álgebra y análisis",
+    "icon": "📈",
+    "description": "Monotonía, extremos, concavidad, puntos de inflexión y optimización mediante derivadas.",
+    "keywords": ["extremos", "máximo", "mínimo", "concavidad", "optimización"],
+    "saberes_basicos": ["SB4"]
+  },
+  {
+    "id": "trigonometria",
+    "title": "Trigonometría",
+    "block": "Geometría",
+    "icon": "△",
+    "description": "Razones trigonométricas, identidades, fórmulas de adición y ecuaciones trigonométricas.",
+    "keywords": ["seno", "coseno", "tangente", "identidad trigonométrica"],
+    "saberes_basicos": ["SB2"]
+  },
+  {
+    "id": "geometria_analitica",
+    "title": "Geometría analítica en el plano",
+    "block": "Geometría",
+    "icon": "📐",
+    "description": "Vectores en el plano, ecuaciones de la recta y posiciones relativas.",
+    "keywords": ["vector", "recta", "ecuación vectorial", "posición relativa"],
+    "saberes_basicos": ["SB2"]
+  },
+  {
+    "id": "estadistica_descriptiva",
+    "title": "Estadística descriptiva",
+    "block": "Estadística y probabilidad",
+    "icon": "📊",
+    "description": "Variables estadísticas, medidas de posición, dispersión y representaciones gráficas.",
+    "keywords": ["media", "desviación típica", "mediana", "moda", "varianza"],
+    "saberes_basicos": ["SB3"]
+  },
+  {
+    "id": "probabilidad",
+    "title": "Probabilidad",
+    "block": "Estadística y probabilidad",
+    "icon": "🎲",
+    "description": "Probabilidad clásica, condicionada, teorema de Bayes y distribuciones notables.",
+    "keywords": ["probabilidad", "suceso", "Bayes", "distribución binomial"],
+    "saberes_basicos": ["SB3"]
+  }
+]

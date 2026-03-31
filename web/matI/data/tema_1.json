@@ -1,0 +1,327 @@
+{
+  "topic": {
+    "id": "limites",
+    "title": "Límites y continuidad",
+    "block": "Álgebra y análisis",
+    "course": "1.º Bachillerato",
+    "subject": "Matemáticas I",
+    "summary": "El concepto de límite es la piedra angular del análisis matemático. Permite describir el comportamiento de una función cuando su variable se acerca indefinidamente a un valor, sin necesidad de que la función esté definida en ese punto. Estudiaremos el cálculo de límites, las indeterminaciones más habituales, las asíntotas y los tipos de continuidad.",
+    "keywords": ["límite", "indeterminación", "asíntota", "continuidad", "discontinuidad", "infinito"],
+    "saberes_basicos": ["SB4"],
+    "prerequisites": ["funciones", "operaciones algebraicas básicas"]
+  },
+
+  "theory_sections": [
+    {
+      "id": "tl01",
+      "title": "Concepto de límite",
+      "level": 1,
+      "keywords": ["límite", "tendencia", "entorno"],
+      "saberes_basicos": ["SB4"],
+      "content_html": "<div class=\"ib ib-def\"><div class=\"ib-t\">📌 Definición informal</div><p>Decimos que $\\displaystyle\\lim_{x \\to a} f(x) = L$ si los valores de $f(x)$ se acercan tanto como queramos a $L$ cuando $x$ se acerca a $a$ (sin llegar a ser $a$).</p></div><p>El límite <strong>no depende del valor</strong> de $f$ en $x = a$, ni siquiera de que $f$ esté definida allí. Sólo importa el comportamiento en un <em>entorno perforado</em> de $a$.</p><p>Hablamos de <strong>límites laterales</strong> cuando nos acercamos sólo por un lado:</p><ul><li><strong>Límite por la izquierda:</strong> $\\displaystyle\\lim_{x \\to a^-} f(x)$</li><li><strong>Límite por la derecha:</strong> $\\displaystyle\\lim_{x \\to a^+} f(x)$</li></ul><div class=\"ib ib-note\"><div class=\"ib-t\">💡 Condición de existencia</div><p>$\\displaystyle\\lim_{x \\to a} f(x) = L$ existe si y solo si los dos límites laterales son iguales: $$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = L$$</p></div>",
+      "common_mistakes": [
+        "Confundir $\\lim_{x\\to a} f(x)$ con $f(a)$. Son cosas distintas: el límite describe un comportamiento tendencial, no un valor puntual.",
+        "Asumir que si $f(a)$ no existe, el límite tampoco existe. El límite puede existir aunque $f$ no esté definida en $a$.",
+        "Olvidar comprobar los dos límites laterales antes de afirmar que el límite existe."
+      ]
+    },
+    {
+      "id": "tl02",
+      "title": "Cálculo de límites: reglas operatorias",
+      "level": 1,
+      "keywords": ["álgebra de límites", "suma", "producto", "cociente"],
+      "saberes_basicos": ["SB4"],
+      "content_html": "<p>Si $\\displaystyle\\lim_{x \\to a} f(x) = L$ y $\\displaystyle\\lim_{x \\to a} g(x) = M$, entonces:</p><div class=\"ib ib-def\"><div class=\"ib-t\">📌 Álgebra de límites</div><p>$\\displaystyle\\lim_{x \\to a}[f(x) \\pm g(x)] = L \\pm M$</p><p>$\\displaystyle\\lim_{x \\to a}[f(x) \\cdot g(x)] = L \\cdot M$</p><p>$\\displaystyle\\lim_{x \\to a}\\dfrac{f(x)}{g(x)} = \\dfrac{L}{M}$ siempre que $M \\neq 0$</p><p>$\\displaystyle\\lim_{x \\to a}[f(x)]^n = L^n$</p></div><p>Para <strong>funciones polinómicas</strong> y <strong>racionales sin cero en el denominador</strong>, el límite se calcula simplemente sustituyendo $x = a$:</p>$$\\lim_{x \\to a} p(x) = p(a)$$<div class=\"ib ib-hint\"><div class=\"ib-t\">💡 Cuándo surge indeterminación</div><p>La sustitución directa falla y aparece una <strong>indeterminación</strong> cuando obtenemos $\\dfrac{0}{0}$, $\\dfrac{\\infty}{\\infty}$, $\\infty - \\infty$, $0 \\cdot \\infty$, $1^\\infty$, $0^0$ o $\\infty^0$.</p></div>",
+      "common_mistakes": [
+        "Aplicar las reglas del álgebra de límites cuando alguno de los límites es $\\infty$. Hay que tener más cuidado en esos casos.",
+        "Obtener $\\frac{0}{0}$ y concluir que el límite no existe. Es una indeterminación que hay que resolver."
+      ]
+    },
+    {
+      "id": "tl03",
+      "title": "Indeterminaciones y cómo resolverlas",
+      "level": 2,
+      "keywords": ["indeterminación", "0/0", "infinito/infinito", "factorización", "infinitésimos"],
+      "saberes_basicos": ["SB4"],
+      "content_html": "<p>Las indeterminaciones más frecuentes en Bachillerato son $\\frac{0}{0}$ y $\\frac{\\infty}{\\infty}$.</p><div class=\"ib ib-def\"><div class=\"ib-t\">📌 Indeterminación $\\frac{0}{0}$</div><p>Se resuelve <strong>factorizando</strong> numerador y denominador y simplificando el factor común que se anula.</p></div><div class=\"ib ib-def\"><div class=\"ib-t\">📌 Indeterminación $\\frac{\\infty}{\\infty}$</div><p>En funciones racionales cuando $x \\to \\infty$, se divide numerador y denominador entre la <strong>mayor potencia</strong> del denominador.</p><p>Si $\\deg(\\text{num}) < \\deg(\\text{den})$: el límite es $0$.</p><p>Si $\\deg(\\text{num}) = \\deg(\\text{den})$: el límite es el cociente de coeficientes principales.</p><p>Si $\\deg(\\text{num}) > \\deg(\\text{den})$: el límite es $\\pm\\infty$.</p></div><div class=\"ib ib-hint\"><div class=\"ib-t\">💡 Indeterminación $\\infty - \\infty$ con raíces</div><p>Se resuelve multiplicando y dividiendo por la <strong>expresión conjugada</strong> para eliminar la raíz.</p></div>",
+      "common_mistakes": [
+        "En $\\frac{0}{0}$, intentar simplificar sin haber factorizado previamente.",
+        "En $\\frac{\\infty}{\\infty}$, dividir entre la potencia del numerador en lugar del denominador.",
+        "Confundir $\\infty - \\infty$ (indeterminado) con $\\infty + \\infty = +\\infty$ (no indeterminado)."
+      ]
+    },
+    {
+      "id": "tl04",
+      "title": "Límites en el infinito y asíntotas",
+      "level": 2,
+      "keywords": ["asíntota vertical", "asíntota horizontal", "asíntota oblicua", "infinito"],
+      "saberes_basicos": ["SB4"],
+      "content_html": "<div class=\"ib ib-def\"><div class=\"ib-t\">📌 Asíntota vertical $x = a$</div><p>Se produce cuando $\\displaystyle\\lim_{x \\to a^\\pm} f(x) = \\pm\\infty$. Aparece en los ceros del denominador (cuando no se anulan también en el numerador).</p></div><div class=\"ib ib-def\"><div class=\"ib-t\">📌 Asíntota horizontal $y = L$</div><p>Existe cuando $\\displaystyle\\lim_{x \\to +\\infty} f(x) = L$ o $\\displaystyle\\lim_{x \\to -\\infty} f(x) = L$. Puede ser distinta a cada lado.</p></div><div class=\"ib ib-def\"><div class=\"ib-t\">📌 Asíntota oblicua $y = mx + n$</div><p>Cuando no hay asíntota horizontal y $\\deg(\\text{num}) = \\deg(\\text{den}) + 1$:</p><p>$m = \\displaystyle\\lim_{x \\to \\infty} \\dfrac{f(x)}{x}$, &nbsp;&nbsp; $n = \\displaystyle\\lim_{x \\to \\infty} [f(x) - mx]$</p></div>",
+      "common_mistakes": [
+        "Buscar asíntotas verticales solo donde el denominador se anula, sin comprobar si ese cero también anula el numerador (podría ser un hueco, no una asíntota).",
+        "Confundir asíntota horizontal con oblicua. Si el grado del numerador supera en 1 al del denominador, hay oblicua, no horizontal.",
+        "Olvidar comprobar los dos límites laterales en una posible asíntota vertical."
+      ]
+    },
+    {
+      "id": "tl05",
+      "title": "Continuidad",
+      "level": 1,
+      "keywords": ["continuidad", "discontinuidad evitable", "discontinuidad de salto", "discontinuidad esencial"],
+      "saberes_basicos": ["SB4"],
+      "content_html": "<div class=\"ib ib-def\"><div class=\"ib-t\">📌 Definición de continuidad en un punto</div><p>$f$ es continua en $x = a$ si se cumplen <strong>las tres condiciones</strong>:</p><ol><li>$f(a)$ existe (está definida).</li><li>$\\displaystyle\\lim_{x \\to a} f(x)$ existe.</li><li>$\\displaystyle\\lim_{x \\to a} f(x) = f(a)$.</li></ol></div><p>Si alguna falla, hay una <strong>discontinuidad</strong>:</p><div class=\"ib ib-hint\"><div class=\"ib-t\">💡 Tipos de discontinuidad</div><p><strong>Evitable:</strong> el límite existe pero no coincide con $f(a)$ (o $f$ no está definida en $a$). Se puede «reparar» redefiniendo $f(a)$.</p><p><strong>De salto:</strong> los dos límites laterales existen pero son distintos. El salto es su diferencia.</p><p><strong>Esencial (o inevitable):</strong> algún límite lateral es infinito. No se puede reparar.</p></div>",
+      "common_mistakes": [
+        "Olvidar verificar las tres condiciones. Las tres deben cumplirse simultáneamente.",
+        "Llamar 'discontinuidad evitable' a cualquier discontinuidad. Solo lo es cuando el límite existe pero no coincide con el valor.",
+        "Confundir discontinuidad de salto finito con esencial: en el salto ambos límites laterales son finitos."
+      ]
+    }
+  ],
+
+  "worked_examples": [
+    {
+      "id": "el01",
+      "title": "Límite con indeterminación 0/0 — factorización",
+      "difficulty": "basica",
+      "keywords": ["indeterminación 0/0", "factorización"],
+      "saberes_basicos": ["SB4"],
+      "problem_html": "<p>Calcula $\\displaystyle\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$.</p>",
+      "strategy_html": "La sustitución directa da $\\frac{0}{0}$. Factorizamos el numerador para encontrar el factor común y simplificarlo.",
+      "solution_steps": [
+        {
+          "step": 1,
+          "explanation_html": "<p>Comprobamos que es una indeterminación:</p>",
+          "latex": "x=2 \\Rightarrow \\frac{4-4}{2-2} = \\frac{0}{0} \\quad \\text{(indeterminado)}"
+        },
+        {
+          "step": 2,
+          "explanation_html": "<p>Factorizamos el numerador como diferencia de cuadrados:</p>",
+          "latex": "x^2 - 4 = (x-2)(x+2)"
+        },
+        {
+          "step": 3,
+          "explanation_html": "<p>Simplificamos el factor $(x-2)$ que se anula (podemos hacerlo porque $x \\to 2$ pero $x \\neq 2$):</p>",
+          "latex": "\\frac{x^2 - 4}{x - 2} = \\frac{(x-2)(x+2)}{x-2} = x + 2"
+        },
+        {
+          "step": 4,
+          "explanation_html": "<p>Ahora sustituimos sin problema:</p>",
+          "latex": "\\lim_{x \\to 2}(x+2) = 2 + 2 = 4"
+        }
+      ],
+      "common_mistake_html": "<p>Error: concluir que el límite no existe porque se obtiene $\\frac{0}{0}$. Esa expresión es una <strong>indeterminación</strong>, no un resultado; hay que transformarla.</p>",
+      "final_answer_html": "<p>$\\displaystyle\\lim_{x \\to 2} \\dfrac{x^2-4}{x-2} = 4$</p>"
+    },
+    {
+      "id": "el02",
+      "title": "Límite en el infinito de una función racional",
+      "difficulty": "basica",
+      "keywords": ["límite en el infinito", "función racional", "grado del polinomio"],
+      "saberes_basicos": ["SB4"],
+      "problem_html": "<p>Calcula $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{3x^2 - 1}{x^2 + 2x}$.</p>",
+      "strategy_html": "Dividimos numerador y denominador entre la mayor potencia del denominador, que es $x^2$.",
+      "solution_steps": [
+        {
+          "step": 1,
+          "explanation_html": "<p>Dividimos todo entre $x^2$:</p>",
+          "latex": "\\frac{3x^2 - 1}{x^2 + 2x} = \\frac{3 - \\tfrac{1}{x^2}}{1 + \\tfrac{2}{x}}"
+        },
+        {
+          "step": 2,
+          "explanation_html": "<p>Cuando $x \\to +\\infty$, los términos $\\dfrac{1}{x^2}$ y $\\dfrac{2}{x}$ tienden a $0$:</p>",
+          "latex": "\\lim_{x \\to +\\infty} \\frac{3 - \\tfrac{1}{x^2}}{1 + \\tfrac{2}{x}} = \\frac{3 - 0}{1 + 0} = 3"
+        }
+      ],
+      "final_answer_html": "<p>$\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{3x^2-1}{x^2+2x} = 3$</p><p>La recta $y=3$ es <strong>asíntota horizontal</strong> cuando $x \\to +\\infty$.</p>"
+    },
+    {
+      "id": "el03",
+      "title": "Asíntotas de una función racional",
+      "difficulty": "media",
+      "keywords": ["asíntota vertical", "asíntota horizontal"],
+      "saberes_basicos": ["SB4"],
+      "problem_html": "<p>Halla las asíntotas de $f(x) = \\dfrac{2x}{x-3}$.</p>",
+      "strategy_html": "Buscamos primero las asíntotas verticales (ceros del denominador) y luego las horizontales (límites en $\\pm\\infty$).",
+      "solution_steps": [
+        {
+          "step": 1,
+          "explanation_html": "<p><strong>Asíntota vertical:</strong> igualamos el denominador a cero.</p>",
+          "latex": "x - 3 = 0 \\Rightarrow x = 3"
+        },
+        {
+          "step": 2,
+          "explanation_html": "<p>Comprobamos que $x=3$ no anula también el numerador ($2\\cdot3=6\\neq0$), así que hay asíntota vertical.</p>",
+          "latex": "\\lim_{x \\to 3^-} \\frac{2x}{x-3} = -\\infty \\qquad \\lim_{x \\to 3^+} \\frac{2x}{x-3} = +\\infty"
+        },
+        {
+          "step": 3,
+          "explanation_html": "<p><strong>Asíntota horizontal:</strong> calculamos el límite en $\\pm\\infty$. Como los grados son iguales, el límite es el cociente de coeficientes principales.</p>",
+          "latex": "\\lim_{x \\to \\pm\\infty} \\frac{2x}{x-3} = \\frac{2}{1} = 2"
+        }
+      ],
+      "final_answer_html": "<p>Asíntota vertical: $x = 3$. &nbsp; Asíntota horizontal: $y = 2$.</p>"
+    }
+  ],
+
+  "solved_exercises": [
+    {
+      "id": "sl01",
+      "title": "Indeterminación ∞ − ∞ con conjugada",
+      "difficulty": "media",
+      "keywords": ["indeterminación", "conjugada", "raíz cuadrada"],
+      "saberes_basicos": ["SB4"],
+      "problem_html": "<p>Calcula $\\displaystyle\\lim_{x \\to +\\infty} (\\sqrt{x^2+x} - x)$.</p>",
+      "approach_html": "Tipo $\\infty - \\infty$. Multiplicamos y dividimos por la expresión conjugada $\\sqrt{x^2+x} + x$ para eliminar la indeterminación.",
+      "solution_steps": [
+        {
+          "step": 1,
+          "explanation_html": "<p>Multiplicamos por la conjugada:</p>",
+          "latex": "(\\sqrt{x^2+x} - x) \\cdot \\frac{\\sqrt{x^2+x}+x}{\\sqrt{x^2+x}+x}"
+        },
+        {
+          "step": 2,
+          "explanation_html": "<p>El numerador se convierte en diferencia de cuadrados:</p>",
+          "latex": "\\frac{(x^2+x) - x^2}{\\sqrt{x^2+x}+x} = \\frac{x}{\\sqrt{x^2+x}+x}"
+        },
+        {
+          "step": 3,
+          "explanation_html": "<p>Dividimos numerador y denominador entre $x$ (con $x>0$, $\\sqrt{x^2}=x$):</p>",
+          "latex": "\\frac{1}{\\sqrt{1+\\tfrac{1}{x}}+1}"
+        },
+        {
+          "step": 4,
+          "explanation_html": "<p>Cuando $x \\to +\\infty$, $\\tfrac{1}{x} \\to 0$:</p>",
+          "latex": "\\frac{1}{\\sqrt{1+0}+1} = \\frac{1}{2}"
+        }
+      ],
+      "final_answer_html": "<p>$\\displaystyle\\lim_{x \\to +\\infty}(\\sqrt{x^2+x}-x) = \\dfrac{1}{2}$</p>"
+    },
+    {
+      "id": "sl02",
+      "title": "Continuidad de una función definida a trozos",
+      "difficulty": "media",
+      "keywords": ["continuidad", "función a trozos", "límite lateral"],
+      "saberes_basicos": ["SB4"],
+      "problem_html": "<p>Estudia la continuidad de $f(x) = \\begin{cases} x^2 + 1 & \\text{si } x < 2 \\\\ 3x - 1 & \\text{si } x \\geq 2 \\end{cases}$</p>",
+      "approach_html": "Las funciones a trozos son continuas dentro de cada trozo. Solo hay que estudiar el punto de unión $x = 2$: comprobamos las tres condiciones de continuidad.",
+      "solution_steps": [
+        {
+          "step": 1,
+          "explanation_html": "<p><strong>Condición 1:</strong> $f(2)$ existe. Usamos el trozo $x \\geq 2$:</p>",
+          "latex": "f(2) = 3(2) - 1 = 5"
+        },
+        {
+          "step": 2,
+          "explanation_html": "<p><strong>Condición 2 (izquierda):</strong></p>",
+          "latex": "\\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-}(x^2+1) = 4+1 = 5"
+        },
+        {
+          "step": 3,
+          "explanation_html": "<p><strong>Condición 2 (derecha):</strong></p>",
+          "latex": "\\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+}(3x-1) = 6-1 = 5"
+        },
+        {
+          "step": 4,
+          "explanation_html": "<p>Como ambos límites laterales son iguales, el límite existe y coincide con $f(2)$:</p>",
+          "latex": "\\lim_{x \\to 2} f(x) = 5 = f(2)"
+        }
+      ],
+      "final_answer_html": "<p>$f$ es <strong>continua</strong> en $x = 2$ y, por tanto, en todo $\\mathbb{R}$.</p>"
+    }
+  ],
+
+  "flashcards": [
+    {
+      "id": "fl01",
+      "front": "¿Qué significa $\\lim_{x \\to a} f(x) = L$?",
+      "back": "Que $f(x)$ se acerca a $L$ cuando $x$ se acerca a $a$, independientemente del valor de $f(a)$."
+    },
+    {
+      "id": "fl02",
+      "front": "¿Cuándo existe $\\lim_{x \\to a} f(x)$?",
+      "back": "Cuando los dos límites laterales existen y son iguales: $\\lim_{x\\to a^-}f(x) = \\lim_{x\\to a^+}f(x)$."
+    },
+    {
+      "id": "fl03",
+      "front": "¿Qué es una indeterminación $\\frac{0}{0}$?",
+      "back": "Una expresión en la que numerador y denominador se anulan simultáneamente. No es el resultado: hay que transformarla (factorizando, conjugada, etc.)."
+    },
+    {
+      "id": "fl04",
+      "front": "Límite de $\\frac{p(x)}{q(x)}$ cuando $x\\to\\infty$ con $\\deg p = \\deg q$",
+      "back": "El límite es el cociente de los coeficientes principales: $\\dfrac{a_n}{b_n}$."
+    },
+    {
+      "id": "fl05",
+      "front": "¿Qué es una asíntota vertical?",
+      "back": "La recta $x=a$ tal que $\\lim_{x\\to a^\\pm}f(x)=\\pm\\infty$. Aparece en los ceros del denominador que no anulan también el numerador."
+    },
+    {
+      "id": "fl06",
+      "front": "¿Qué es una asíntota horizontal?",
+      "back": "La recta $y=L$ tal que $\\lim_{x\\to\\pm\\infty}f(x)=L$."
+    },
+    {
+      "id": "fl07",
+      "front": "Tres condiciones de continuidad en $x=a$",
+      "back": "1) $f(a)$ existe. &nbsp; 2) $\\lim_{x\\to a}f(x)$ existe. &nbsp; 3) $\\lim_{x\\to a}f(x) = f(a)$."
+    },
+    {
+      "id": "fl08",
+      "front": "Tipos de discontinuidad",
+      "back": "<strong>Evitable:</strong> el límite existe pero no coincide con $f(a)$.<br><strong>Salto:</strong> los límites laterales existen pero son distintos.<br><strong>Esencial:</strong> algún límite lateral es $\\pm\\infty$."
+    }
+  ],
+
+  "quiz": [
+    {
+      "id": "ql01",
+      "question_html": "¿Cuál es $\\displaystyle\\lim_{x \\to 3} \\dfrac{x^2 - 9}{x - 3}$?",
+      "options": ["$0$", "$3$", "$6$", "No existe"],
+      "correct_index": 2,
+      "feedback_html": "Factorizando: $\\frac{(x-3)(x+3)}{x-3} = x+3 \\xrightarrow{x\\to3} 6$."
+    },
+    {
+      "id": "ql02",
+      "question_html": "$\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{5x^3 - 1}{2x^3 + x}$ es igual a:",
+      "options": ["$0$", "$5$", "$\\frac{5}{2}$", "$+\\infty$"],
+      "correct_index": 2,
+      "feedback_html": "Grados iguales (3 = 3): el límite es el cociente de coeficientes principales, $\\frac{5}{2}$."
+    },
+    {
+      "id": "ql03",
+      "question_html": "La función $f(x) = \\dfrac{1}{x-2}$ tiene asíntota vertical en:",
+      "options": ["$x = 0$", "$x = 1$", "$x = 2$", "$x = -2$"],
+      "correct_index": 2,
+      "feedback_html": "El denominador se anula en $x=2$. El numerador no se anula ahí, así que hay asíntota vertical."
+    },
+    {
+      "id": "ql04",
+      "question_html": "Si $\\lim_{x\\to a^-}f(x) = 3$ y $\\lim_{x\\to a^+}f(x) = 5$, la discontinuidad en $x=a$ es de tipo:",
+      "options": ["Evitable", "Salto", "Esencial", "No hay discontinuidad"],
+      "correct_index": 1,
+      "feedback_html": "Ambos límites laterales existen y son finitos, pero diferentes (3 ≠ 5). Eso es una discontinuidad de <strong>salto</strong>."
+    },
+    {
+      "id": "ql05",
+      "question_html": "Para que $f$ sea continua en $x=a$ se necesita que:",
+      "options": ["$f(a)$ exista", "$\\lim_{x\\to a}f(x)$ exista", "$\\lim_{x\\to a}f(x) = f(a)$", "Las tres condiciones anteriores"],
+      "correct_index": 3,
+      "feedback_html": "Las tres condiciones deben cumplirse simultáneamente: existencia de $f(a)$, existencia del límite y que coincidan."
+    }
+  ],
+
+  "tasks": [
+    {
+      "id": "tl_t01",
+      "title": "Estudio completo de límites y asíntotas",
+      "status": "pending",
+      "due_date": "20/06/2025",
+      "type": "Entrega escrita",
+      "points": 10,
+      "keywords": ["límites", "asíntotas", "indeterminaciones"],
+      "saberes_basicos": ["SB4"],
+      "description_html": "<p>Para la función $f(x) = \\dfrac{x^2 - 1}{x^2 - 4}$, realiza el estudio completo:</p><ol><li>Dominio.</li><li>Límites en los puntos de discontinuidad y tipo de cada una.</li><li>Asíntotas verticales y horizontales.</li><li>Comportamiento en $\\pm\\infty$.</li><li>Representación gráfica esquemática con toda la información obtenida.</li></ol>"
+    }
+  ]
+}
